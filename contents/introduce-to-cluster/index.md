@@ -48,7 +48,7 @@ Trên các máy Windows 10 cũng có ứng dụng hỗ trợ SSH. (Nếu vì lý
     Để đóng kết nối SSH, chỉ cần nhập dòng lệnh và nhấn Enter. Thao tác này sẽ đóng kết nối và dấu nhắc dòng lệnh trên máy tính cục bộ của bạn sẽ xuất hiện lại. (hoặc sử dụng Ctrl-D)
     
 
-## ****SSH Keys: ssh không cần sử dụng password****
+## SSH Keys: ssh không cần sử dụng password
 
 Việc nhập mật khẩu mỗi khi bạn muốn kết nối với một máy hoặc khó chịu hơn là mỗi khi bạn muốn sao chép một tập tin đến/từ một máy từ xa sẽ nhanh chóng trở nên khó chịu. Một giải pháp là cho phép đăng nhập/hoạt động từ xa không cần mật khẩu bằng cách tạo một cặp khóa ssh công khai/riêng tư và sử dụng chúng để kết nối. Quy trình được giải thích trong hướng dẫn này
 
@@ -76,7 +76,7 @@ $ tmux a -t download
 
 tmux là một công cụ mạnh mẽ và phức tạp. Ngoài hướng dẫn đơn giản được liên kết ở trên, bạn có thể đọc cheatsheet về tmux
 
-## **Tìm hiểu thêm về một cụm bằng cách chạy lệnh**
+## Tìm hiểu thêm về một cụm bằng cách chạy lệnh
 
 Khi ở trong một cụm, hãy nhập từng lệnh bên dưới và kiểm tra đầu ra:
 
@@ -95,7 +95,7 @@ Khi ở trong một cụm, hãy nhập từng lệnh bên dưới và kiểm tra
  nvidia-smi                # check gpu resources
 ```
 
-# L**àm việc và quản lý bộ nhớ trên cluster**
+# Làm việc và quản lý bộ nhớ trên cluster
 
 Các cluster của Research Computing chứa một số thư mục (/home, /scratch và /media hoặc /projects) được thiết kế cho các mục đích sử dụng cụ thể. Để hiểu cách làm việc và lưu trữ đúng cách các loại tệp khác nhau. 
 

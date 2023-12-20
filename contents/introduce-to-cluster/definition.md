@@ -23,7 +23,7 @@ Các hệ thống tính toán cung cấp phần lớn là các cụm. Mỗi máy
 - **Compute node** - là các máy tính nơi các công việc sẽ được thực hiện. Để chạy các công việc trên các compute nodes, chúng ta phải thông qua bộ lập lịch. Bằng cách gửi JOB tới job scheduler, công việc sẽ tự động được chạy trên các compute node sau khi có sẵn các tài nguyên được yêu cầu. Chúng tôi sử dụng SLURM làm chương trình lập kế hoạch. Đọc thêm tại [Slurm Workload Manager - Overview (schedmd.com)](https://slurm.schedmd.com/overview.html)
 - **Core** - Một cách viết tắt để chỉ số lượng lõi CPU của bộ xử lý (thường là vật lý) của chip CPU trong một nút. CPU của máy tính giống như bộ não của máy tính; nó xử lý và thực hiện phần lớn công việc mà chúng ta yêu cầu máy tính thực hiện.
 
-## **HPC Cluster hoạt động thế nào?**
+## HPC Cluster hoạt động thế nào?
 
 Để chương trình của bạn chạy trên Cluster, bạn có thể bắt đầu công việc trên head node. Một công việc bao gồm các tập tin sau:
 
