@@ -1,6 +1,6 @@
 # **Guide to the HCMUS Research Computing Clusters**
 
-Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN. Hệ thống lập lịch - job scheduler mà chúng tôi sử dụng trên các cụm này được gọi là **Slurm**. Hướng dẫn này đã được chuẩn bị để giúp mọi người sử dụng hệ thống một cách hiệu quả. Mỗi trang tập hợp các liên kết đến các tài nguyên cơ bản trải rộng trên trang web này và giới thiệu chúng theo thứ tự thích hợp.
+Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN. Hệ thống lập lịch - job scheduler mà chúng tôi sử dụng trên các cụm này được gọi là **Slurm**. Hướng dẫn này đã được chuẩn bị để giúp mọi người sử dụng hệ thống một cách hiệu quả. Mỗi trang tập hợp các liên kết đến các tài nguyên cơ bản giới thiệu chúng theo thứ tự thích để người dùng có thể sử dụng được hệ thống.
 
 Tất cả người dùng hệ thống đều phải có kiến thức làm việc cơ bản về hệ thống. Điều này rất quan trọng vì người dùng thể *vô tình lãng phí tài nguyên hoặc thậm chí ảnh hưởng xấu đến công việc của người khác*.
 
