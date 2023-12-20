@@ -9,32 +9,34 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Guide to the HCMUS Research Computing Clusters</title>
-    <meta name="title" content="Guide to the HCMUS Research Computing Clusters">
-    <meta name="description" content="Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN.">
+    <title>Cluster l&#224; g&#236;</title>
+    <meta name="title" content="Cluster là gì">
+    <meta name="description" content="Trước đây, các máy được sử dụng để tính toán hiệu năng cao được gọi là \"siêu máy tính\" hoặc các máy độc lập lớn có phần cứng chuyên dụng, rất khác...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://slurm.nhtlongcs.com/">
+    <link rel="canonical" href="https://slurm.nhtlongcs.com/contents/introduce-to-cluster/definition/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://slurm.nhtlongcs.com/">
-    <meta property="og:title" content="Guide to the HCMUS Research Computing Clusters">
-    <meta property="og:description" content="Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN.">
+    <meta property="og:url" content="https://slurm.nhtlongcs.com/contents/introduce-to-cluster/definition/">
+    <meta property="og:title" content="Cluster là gì">
+    <meta property="og:description" content="Trước đây, các máy được sử dụng để tính toán hiệu năng cao được gọi là \"siêu máy tính\" hoặc các máy độc lập lớn có phần cứng chuyên dụng, rất khác...">
+    <meta property="og:image" content="https://slurm.nhtlongcs.com/static/cluster.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://slurm.nhtlongcs.com/">
-    <meta property="twitter:title" content="Guide to the HCMUS Research Computing Clusters">
-    <meta property="twitter:description" content="Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN.">
+    <meta property="twitter:url" content="https://slurm.nhtlongcs.com/contents/introduce-to-cluster/definition/">
+    <meta property="twitter:title" content="Cluster là gì">
+    <meta property="twitter:description" content="Trước đây, các máy được sử dụng để tính toán hiệu năng cao được gọi là \"siêu máy tính\" hoặc các máy độc lập lớn có phần cứng chuyên dụng, rất khác...">
+    <meta property="twitter:image" content="https://slurm.nhtlongcs.com/static/cluster.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="resources/css/retype.css?v=3.5.0.756412085688" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.756412085688" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.756412085688" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.756412085688" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.756412085688" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.756412085688" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -49,7 +51,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Slurm docs</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
                     </div>
@@ -149,51 +151,48 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="guide-to-the-hcmus-research-computing-clusters" class="break-words">
+<doc-anchor-target id="cluster-là-gì" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#guide-to-the-hcmus-research-computing-clusters">#</doc-anchor-trigger>
-        <span><strong>Guide to the HCMUS Research Computing Clusters</strong></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#cluster-là-gì">#</doc-anchor-trigger>
+        <span>Cluster là gì</span>
     </h1>
 </doc-anchor-target>
-<p>Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN. Hệ thống lập lịch - job scheduler mà chúng tôi sử dụng trên các cụm này được gọi là <strong>Slurm</strong>. Hướng dẫn này đã được chuẩn bị để giúp mọi người sử dụng hệ thống một cách hiệu quả. Mỗi trang tập hợp các liên kết đến các tài nguyên cơ bản giới thiệu chúng theo thứ tự thích để người dùng có thể sử dụng được hệ thống.</p>
-<p>Tất cả người dùng hệ thống đều phải có kiến thức làm việc cơ bản về hệ thống. Điều này rất quan trọng vì người dùng thể <em>vô tình lãng phí tài nguyên hoặc thậm chí ảnh hưởng xấu đến công việc của người khác</em>.</p>
-<p>Miễn trừ trách nhiệm: tài liệu này là một bản dịch phù hợp với hệ thống hiện tại của server ĐH KHTN- được dịch từ <a href="https://researchcomputing.princeton.edu/">https://researchcomputing.princeton.edu/</a>.</p>
-<p>Outline hướng dẫn này bao gồm các chủ đề sau:</p>
-<ol class="contains-task-list">
-<li class="task-list-item">Giới thiệu về cluster <input disabled="disabled" type="checkbox" />
-<ol class="contains-task-list">
-<li class="task-list-item">Mô tả kiến trúc cluster <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Làm thế nào để có được một tài khoản <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Cách kết nối với cluster <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Cách làm việc với files và bộ nhớ <input disabled="disabled" type="checkbox" /></li>
+<p>Trước đây, các máy được sử dụng để tính toán hiệu năng cao được gọi là &quot;siêu máy tính&quot; hoặc các máy độc lập lớn có phần cứng chuyên dụng, rất khác với những gì bạn thấy ở máy tính ở nhà và văn phòng.</p>
+<p>Tuy nhiên, ngày nay, phần lớn các siêu máy tính thay vào đó là các cụm máy tính (hay gọi tắt là &quot;Cluster&quot;) --- tập hợp các máy tính độc lập được nối mạng với nhau. Các máy tính được kết nối với nhau này được trang bị phần mềm để điều phối các chương trình trên (hoặc trên) các máy tính đó và do đó chúng có thể làm việc cùng nhau để thực hiện các tác vụ tính toán chuyên sâu.</p>
+<p>Các hệ thống tính toán cung cấp phần lớn là các cụm. Mỗi máy tính trong cụm được gọi là một <strong>node</strong> (thuật ngữ &quot;Node&quot; xuất phát từ lý thuyết đồ thị) và chúng ta thường nói về hai loại nút: <strong>head node</strong> và <strong>compute nodes</strong>.</p>
+<p><figure class="content-center">
+    <img src="../../../static/cluster.png" alt="cluster">
+    <figcaption class="caption">cluster</figcaption>
+</figure>
+</p>
+<p>Để sử dụng hiệu quả, bạn nên biết về cluster structure của cluster mà mình sử dụng. Thông tin về từng cluster có thể tìm đọc chi tiết</p>
+<p><a href="">Selab - Phòng thí nghiệm SELAB</a></p>
+<p><a href="">Phoenix - Viện nghiên cứu JVN</a></p>
+<p><a href=""> - Khoa CNTT HCMUS</a></p>
+<doc-anchor-target id="thuật-ngữ-sử-dụng">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#thuật-ngữ-sử-dụng">#</doc-anchor-trigger>
+        <span>Thuật ngữ sử dụng</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><strong>Job</strong> - ám chỉ một công việc hoặc tác vụ chạy tự động, thường là kết quả thực thi 1 đoạn mã nguồn</li>
+<li><strong>Head node</strong> -  là máy tính nơi chúng ta truy cập khi đăng nhập vào cluster. Đây là nơi chúng tôi chỉnh sửa tập lệnh, biên dịch mã và gửi công việc tới bộ lập lịch. Các head nodes được chia sẻ với những người dùng khác và các JOB không được chạy trên head nodes.</li>
+<li><strong>Compute node</strong> - là các máy tính nơi các công việc sẽ được thực hiện. Để chạy các công việc trên các compute nodes, chúng ta phải thông qua bộ lập lịch. Bằng cách gửi JOB tới job scheduler, công việc sẽ tự động được chạy trên các compute node sau khi có sẵn các tài nguyên được yêu cầu. Chúng tôi sử dụng SLURM làm chương trình lập kế hoạch. Đọc thêm tại <a href="https://slurm.schedmd.com/overview.html">Slurm Workload Manager - Overview (schedmd.com)</a></li>
+<li><strong>Core</strong> - Một cách viết tắt để chỉ số lượng lõi CPU của bộ xử lý (thường là vật lý) của chip CPU trong một nút. CPU của máy tính giống như bộ não của máy tính; nó xử lý và thực hiện phần lớn công việc mà chúng ta yêu cầu máy tính thực hiện.</li>
+</ul>
+<doc-anchor-target id="hpc-cluster-hoạt-động-thế-nào">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#hpc-cluster-hoạt-động-thế-nào">#</doc-anchor-trigger>
+        <span><strong>HPC Cluster hoạt động thế nào?</strong></span>
+    </h2>
+</doc-anchor-target>
+<p>Để chương trình của bạn chạy trên Cluster, bạn có thể bắt đầu công việc trên head node. Một công việc bao gồm các tập tin sau:</p>
+<ol>
+<li>Mã nguồn (source code) của chương trình của bạn</li>
+<li>SLURM script, sẽ yêu cầu các tài nguyên mà công việc của bạn yêu cầu về dung lượng bộ nhớ, số lõi, số node, v.v. Như đã đề cập trước đó, hệ thống sử dụng job-scheduler có tên SLURM.</li>
 </ol>
-</li>
-<li class="task-list-item">Software Modules <input disabled="disabled" type="checkbox" />
-<ul class="contains-task-list">
-<li class="task-list-item">Cách sử dụng phần mềm đã cài đặt trên cluster (thông qua module) <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (WIP) <input disabled="disabled" type="checkbox" /></li>
-</ul>
-</li>
-<li class="task-list-item">SLURM job <input disabled="disabled" type="checkbox" checked="checked" />
-<ul class="contains-task-list">
-<li class="task-list-item">Giới thiệu về Slurm <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Hướng dẫn từng bước để chạy tác vụ Slurm đầu tiên <input disabled="disabled" type="checkbox" checked="checked" /></li>
-</ul>
-</li>
-<li class="task-list-item">Tối ưu - các best practice <input disabled="disabled" type="checkbox" />
-<ul class="contains-task-list">
-<li class="task-list-item">Tối ưu hoá sử dụng tài nguyên trên Slurm <input disabled="disabled" type="checkbox" /></li>
-<li class="task-list-item">Sử dụng hiệu quả filesystem <input disabled="disabled" type="checkbox" /></li>
-</ul>
-</li>
-<li class="task-list-item">Liên hệ nhờ giúp đỡ <input disabled="disabled" type="checkbox" checked="checked" />
-<ul class="contains-task-list">
-<li class="task-list-item">FAQ (Các câu hỏi thường gặp) <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Các bước hỗ trợ <input disabled="disabled" type="checkbox" checked="checked" /></li>
-</ul>
-</li>
-<li class="task-list-item">Các thuật ngữ nên đọc <input disabled="disabled" type="checkbox" checked="checked" /></li>
-</ol>
+<p>Sau khi tệp của bạn được gửi, bộ lập lịch (SLURM) sẽ đảm nhiệm việc tìm hiểu xem tài nguyên bạn yêu cầu có sẵn trên các compute nodes hay không và nếu không, nó sẽ bắt đầu dự trữ các tài nguyên đó cho bạn. Khi tài nguyên có sẵn, bộ lập lịch sẽ chạy chương trình của bạn trên các compute nodes</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -203,13 +202,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../contents/introduce-to-cluster/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Kiến thức cơ bản về cluster</span>
+                                            </span>
+                                        </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="contents/introduce-to-cluster/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../contents/introduce-to-cluster/ssh/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Kiến thức cơ bản về cluster</span>
+                                                <span class="block mt-1">Đăng nhập SSH không cần mật khẩu</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -253,6 +259,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Trang chủ", isRoot: true, level: 0, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Cluster là gì", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
