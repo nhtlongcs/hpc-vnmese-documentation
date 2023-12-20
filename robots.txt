@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://slurm.nhtlongcs.com/sitemap.xml.gz
