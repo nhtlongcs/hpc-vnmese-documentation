@@ -10,12 +10,12 @@ Outline hướng dẫn này bao gồm các chủ đề sau:
 
 1. Giới thiệu về cluster (xong)
     1. Mô tả kiến trúc cluster
-    2. Làm thế nào để có được một tài khoản (anh Đăng viết)
+    2. Làm thế nào để có được một tài khoản (WIP)
     3. Cách kết nối với cluster (Phải đọc) (thiếu phần VPN?)
-    4. **Cách làm việc với files và bộ nhớ (Phải đọc) (nhờ a Đăng viết)**
+    4. **Cách làm việc với files và bộ nhớ (Phải đọc) (WIP)**
 2. Software (xong)
     - Cách sử dụng phần mềm đã cài đặt trên cluster (thông qua module) (Phải đọc)
-    - **Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (nhờ a Lễ xem)**
+    - **Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (WIP)**
 3. SLURM job (xong) (phải đọc)
     - Giới thiệu về Slurm
     - Hướng dẫn từng bước để chạy tác vụ Slurm đầu tiên
