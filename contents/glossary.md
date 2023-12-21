@@ -1,4 +1,4 @@
-# Bảng thuật ngữ
+# **Bảng thuật ngữ**
 
 | Cụm từ | Khái niệm |
 | --- | --- |
