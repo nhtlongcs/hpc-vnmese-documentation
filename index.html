@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756442451010">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756443027681">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Guide to the HCMUS Research Computing Clusters</title>
-    <meta name="title" content="Guide to the HCMUS Research Computing Clusters">
+    <title>Hướng dẫn Cụm m&#225;y t&#237;nh nghi&#234;n cứu tại HCMUS</title>
+    <meta name="title" content="Hướng dẫn Cụm máy tính nghiên cứu tại HCMUS">
     <meta name="description" content="Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN.">
 
     <!-- Canonical -->
@@ -19,22 +19,22 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://slurm.nhtlongcs.com/">
-    <meta property="og:title" content="Guide to the HCMUS Research Computing Clusters">
+    <meta property="og:title" content="Hướng dẫn Cụm máy tính nghiên cứu tại HCMUS">
     <meta property="og:description" content="Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://slurm.nhtlongcs.com/">
-    <meta property="twitter:title" content="Guide to the HCMUS Research Computing Clusters">
+    <meta property="twitter:title" content="Hướng dẫn Cụm máy tính nghiên cứu tại HCMUS">
     <meta property="twitter:description" content="Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="resources/css/retype.css?v=3.5.0.756442451010" rel="stylesheet">
+    <link href="resources/css/retype.css?v=3.5.0.756443027681" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.756442451010" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.756443027681" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.756442451010" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.756443027681" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -149,10 +149,10 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="guide-to-the-hcmus-research-computing-clusters" class="break-words">
+<doc-anchor-target id="hướng-dẫn-cụm-máy-tính-nghiên-cứu-tại-hcmus" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#guide-to-the-hcmus-research-computing-clusters">#</doc-anchor-trigger>
-        <span><strong>Guide to the HCMUS Research Computing Clusters</strong></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#hướng-dẫn-cụm-máy-tính-nghiên-cứu-tại-hcmus">#</doc-anchor-trigger>
+        <span><strong>Hướng dẫn Cụm máy tính nghiên cứu tại HCMUS</strong></span>
     </h1>
 </doc-anchor-target>
 <p>Core HPC (High Performance Computing Core) được sử dụng để chạy nhiều cluster trong ĐH-KHTN. Hệ thống lập lịch - job scheduler mà chúng tôi sử dụng trên các cụm này được gọi là <strong>Slurm</strong>. Hướng dẫn này đã được chuẩn bị để giúp mọi người sử dụng hệ thống một cách hiệu quả. Mỗi trang tập hợp các liên kết đến các tài nguyên cơ bản giới thiệu chúng theo thứ tự thích để người dùng có thể sử dụng được hệ thống.</p>
@@ -165,7 +165,7 @@
 <li class="task-list-item">Mô tả kiến trúc cluster <input disabled="disabled" type="checkbox" checked="checked" /></li>
 <li class="task-list-item">Làm thế nào để có được một tài khoản <input disabled="disabled" type="checkbox" checked="checked" /></li>
 <li class="task-list-item">Cách kết nối với cluster <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Cách làm việc với files và bộ nhớ <input disabled="disabled" type="checkbox" /></li>
+<li class="task-list-item">Cách làm việc với filesystem và storage - các best practice <input disabled="disabled" type="checkbox" /></li>
 </ol>
 </li>
 <li class="task-list-item">Hướng dẫn sử dụng server <input disabled="disabled" type="checkbox" checked="checked" />
@@ -180,10 +180,10 @@
 <li class="task-list-item">Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (WIP) <input disabled="disabled" type="checkbox" /></li>
 </ul>
 </li>
-<li class="task-list-item">Tối ưu - các best practice <input disabled="disabled" type="checkbox" />
+<li class="task-list-item">Quy định <input disabled="disabled" type="checkbox" />
 <ul class="contains-task-list">
-<li class="task-list-item">Tối ưu hoá sử dụng tài nguyên trên Slurm <input disabled="disabled" type="checkbox" /></li>
-<li class="task-list-item">Sử dụng hiệu quả filesystem <input disabled="disabled" type="checkbox" /></li>
+<li class="task-list-item">Quy định về sử dụng tài nguyên <input disabled="disabled" type="checkbox" /></li>
+<li class="task-list-item">Quy định về quản lý tác vụ <input disabled="disabled" type="checkbox" /></li>
 </ul>
 </li>
 <li class="task-list-item">Liên hệ nhờ giúp đỡ <input disabled="disabled" type="checkbox" checked="checked" />
