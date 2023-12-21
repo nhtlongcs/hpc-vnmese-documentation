@@ -1,8 +1,10 @@
 input: .
 output: .retype
 url: slurm.nhtlongcs.com
+favicon: static/logo.webp
 branding:
   title: Slurm docs
   label: Docs
+  logo: static/logo.webp
 footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved."
