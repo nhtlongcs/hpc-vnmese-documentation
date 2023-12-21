@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Read the documentation
+    url: https://slurm.nhtlongcs.com/
+    about: Please consult the documentation before opening any issues!
