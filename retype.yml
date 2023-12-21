@@ -3,7 +3,7 @@ output: .retype
 url: slurm.nhtlongcs.com
 favicon: static/logo.webp
 branding:
-  title: Slurm docs
+  title: HPC guide
   label: Docs
   logo: static/logo.webp
 footer:
