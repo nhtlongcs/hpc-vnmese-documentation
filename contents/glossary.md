@@ -1,3 +1,8 @@
+---
+label: Bảng thuật ngữ
+order: -1000
+---
+
 # **Bảng thuật ngữ**
 
 | Cụm từ | Khái niệm |

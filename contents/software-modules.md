@@ -1,4 +1,9 @@
-# **Cách sử dụng Software Modules**
+---
+label: Software modules
+order: 0
+---
+
+# **Cách sử dụng Software Modules** (TODO: thay bằng spack)
 
 Một số lượng lớn các phần mềm được cài đặt trên các cụm HPC. Để quản lí chúng, ta sử dụng software modules. Một số phần mềm được cung cấp thông qua các module chung. Sau khi đọc xong ta có thể
 

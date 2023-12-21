@@ -1,5 +1,6 @@
 ---
 label: Trang chủ
+icon: home
 ---
 
 # **Guide to the HCMUS Research Computing Clusters**
@@ -17,16 +18,16 @@ Outline hướng dẫn này bao gồm các chủ đề sau:
     2. Làm thế nào để có được một tài khoản [x]
     3. Cách kết nối với cluster [x]
     4. Cách làm việc với files và bộ nhớ [ ]
-2. Software Modules [ ]
-    - Cách sử dụng phần mềm đã cài đặt trên cluster (thông qua module) [x]
-    - Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (WIP) [ ]
-3. SLURM job [x]
+1. Hướng dẫn sử dụng server [x]
     - Giới thiệu về Slurm [x]
     - Hướng dẫn từng bước để chạy tác vụ Slurm đầu tiên [x]
-4. Tối ưu - các best practice [ ]
+1. Software Modules [ ]
+    - Cách sử dụng phần mềm đã cài đặt trên cluster (thông qua module) [x]
+    - Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (WIP) [ ]
+1. Tối ưu - các best practice [ ]
     - Tối ưu hoá sử dụng tài nguyên trên Slurm [ ]
     - Sử dụng hiệu quả filesystem [ ]
-5. Liên hệ nhờ giúp đỡ [x]
+1. Liên hệ nhờ giúp đỡ [x]
     - FAQ (Các câu hỏi thường gặp) [x]
     - Các bước hỗ trợ [x]
-6. Các thuật ngữ nên đọc [x]
+1. Các thuật ngữ nên đọc [x]
