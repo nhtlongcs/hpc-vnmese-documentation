@@ -8,3 +8,12 @@ branding:
   logo: static/logo.webp
 footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved."
+
+links:                        # Custom links to add to the top bar
+  - text: Issues
+    link: https://github.com/nhtlongcs/hpc-vnmese-documentation/issues/new/choose # Link to an internal file
+    icon: comment-discussion  # A custom icon name, :emoji:, <svg>, or
+                              # a path to a file
+    iconAlign: left           # Icon alignment, to the left or right
+    target: blank             # Custom target
+                              # Use "blank" to open link in a new window

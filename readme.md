@@ -14,11 +14,12 @@ Miễn trừ trách nhiệm: tài liệu này là một bản dịch phù hợp 
 Outline hướng dẫn này bao gồm các chủ đề sau:
 
 1. Giới thiệu về cluster [ ]
-    1. Mô tả kiến trúc cluster [x]
-    2. Làm thế nào để có được một tài khoản [x]
-    3. Cách kết nối với cluster [x]
-    4. Cách làm việc với filesystem và storage - các best practice [ ]
+    - Mô tả kiến trúc cluster [x]
+    - Làm thế nào để có được một tài khoản [x]
+    - Cách kết nối với cluster [x]
+    - Cách làm việc với filesystem và storage - các best practice [ ]
 1. Hướng dẫn sử dụng server [x]
+    - Kiến thức nền Linux [x]
     - Giới thiệu về Slurm [x]
     - Hướng dẫn từng bước để chạy tác vụ Slurm đầu tiên [x]
 1. Software Modules [ ]
