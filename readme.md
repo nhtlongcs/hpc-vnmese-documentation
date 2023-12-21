@@ -13,22 +13,22 @@ Miễn trừ trách nhiệm: tài liệu này là một bản dịch phù hợp 
 
 Outline hướng dẫn này bao gồm các chủ đề sau:
 
-1. Giới thiệu về cluster [ ]
-    - Mô tả kiến trúc cluster [x]
-    - Làm thế nào để có được một tài khoản [x]
-    - Cách kết nối với cluster [x]
-    - Cách làm việc với filesystem và storage - các best practice [ ]
-1. Hướng dẫn sử dụng server [x]
-    - Kiến thức nền Linux [x]
-    - Giới thiệu về Slurm [x]
-    - Hướng dẫn từng bước để chạy tác vụ Slurm đầu tiên [x]
-1. Software Modules [ ]
-    - Cách sử dụng phần mềm đã cài đặt trên cluster (thông qua module) [x]
-    - Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (WIP) [ ]
-1. Quy định [ ]
-    - Quy định về sử dụng tài nguyên [ ]
-    - Quy định về quản lý tác vụ [ ]
-1. Liên hệ nhờ giúp đỡ [x]
-    - FAQ (Các câu hỏi thường gặp) [x]
-    - Các bước hỗ trợ [x]
-1. Các thuật ngữ nên đọc [x]
+1. Giới thiệu về cluster 
+    - [x] Mô tả kiến trúc cluster 
+    - [x] Làm thế nào để có được một tài khoản 
+    - [x] Cách kết nối với cluster 
+    - [ ] Cách làm việc với filesystem và storage - các best practice
+1. Hướng dẫn sử dụng server 
+    - [x] Kiến thức nền Linux 
+    - [x] Giới thiệu về Slurm 
+    - [x] Hướng dẫn từng bước để chạy tác vụ Slurm đầu tiên 
+1. Software Modules 
+    - [x] Cách sử dụng phần mềm đã cài đặt trên cluster (thông qua module) 
+    - [ ] Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (WIP) 
+1. Quy định 
+    - [ ] Quy định về sử dụng tài nguyên
+    - [ ] Quy định về quản lý tác vụ 
+1. Liên hệ nhờ giúp đỡ 
+    - [x] FAQ (Các câu hỏi thường gặp) 
+    - [x] Các bước hỗ trợ 
+1. Các thuật ngữ nên đọc 
