@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756439583541">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>SLURM</title>
+    <meta name="title" content="SLURM">
+    <meta name="description" content="Trước khi bắt đầu, bạn nên nắm một số kiến thức cơ bản về Linux.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://slurm.nhtlongcs.com/contents/usage/slurm/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://slurm.nhtlongcs.com/contents/usage/slurm/">
+    <meta property="og:title" content="SLURM">
+    <meta property="og:description" content="Trước khi bắt đầu, bạn nên nắm một số kiến thức cơ bản về Linux.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://slurm.nhtlongcs.com/contents/usage/slurm/">
+    <meta property="twitter:title" content="SLURM">
+    <meta property="twitter:description" content="Trước khi bắt đầu, bạn nên nắm một số kiến thức cơ bản về Linux.">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../../resources/css/retype.css?v=3.5.0.756439583541" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.756439583541" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.756439583541" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Slurm docs</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="slurm" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#slurm">#</doc-anchor-trigger>
+        <span><strong>SLURM</strong></span>
+    </h1>
+</doc-anchor-target>
+<p>Trước khi bắt đầu, bạn nên nắm một số kiến thức cơ bản về Linux.</p>
+<p><a href="https://www.notion.so/Ngu-n-t-i-li-u-h-c-s-d-ng-Linux-5886beccfb4d4907a0fcd1b4ee20eb00?pvs=21">Nguồn tài liệu học sử dụng Linux</a></p>
+<doc-anchor-target id="giới-thiệu-slurm">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#giới-thiệu-slurm">#</doc-anchor-trigger>
+        <span><strong>Giới thiệu Slurm</strong></span>
+    </h1>
+</doc-anchor-target>
+<p>Trên tất cả các hệ thống, người dùng chạy chương trình bằng cách gửi script tới Slurm. Slurm script phải thực hiện ba việc:</p>
+<ol>
+<li>Quy định các yêu cầu về tài nguyên cho công việc</li>
+<li>cài đặt môi trường</li>
+<li>Chỉ định công việc sẽ được thực hiện dưới dạng lệnh shell</li>
+</ol>
+<p>Dưới đây là tập lệnh Slurm mẫu để chạy mã Python bằng môi trường Conda:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">#!/bin/bash
+#SBATCH --job-name=myjob         # create a short name for your job
+#SBATCH --nodes=1                # node count
+#SBATCH --ntasks=1               # total number of tasks across all nodes
+#SBATCH --cpus-per-task=1        # cpu-cores per task (&gt;1 if multi-threaded tasks)
+#SBATCH --mem-per-cpu=2G         # memory per cpu-core (4G is default)
+#SBATCH --time=00:01:00          # total run time limit (HH:MM:SS)
+
+module purge
+module load anaconda3/2023.9
+conda activate pytools-env
+
+python myscript.py</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>Dòng đầu tiên của tập lệnh Slurm chỉ định shell Unix sẽ được sử dụng.</li>
+<li>Tiếp theo là một loạt lệnh #SBATCH đặt ra các yêu cầu về tài nguyên và các tham số khác của công việc.</li>
+<li>Tập lệnh trên yêu cầu 1 lõi CPU và 4 GB bộ nhớ trong thời gian chạy 1 phút. Những thay đổi cần thiết đối với môi trường được thực hiện bằng cách tải mô-đun môi trường anaconda3/ và kích hoạt một môi trường Conda cụ thể.</li>
+<li>Cuối cùng, công việc cần thực hiện, tức là thực thi tập lệnh Python, được chỉ định ở dòng cuối cùng.</li>
+</ul>
+<p>Xem bên dưới để biết thông tin về sự tương ứng giữa các tác vụ và lõi CPU. Nếu công việc của bạn không hoàn thành trước thời hạn quy định thì nó sẽ bị hủy. Bạn nên sử dụng giá trị chính xác cho thời gian ước lượng nhưng thêm thêm 20% để đảm bảo an toàn.</p>
+<p>Một tập lệnh công việc có tên <code v-pre>job.slurm</code> được gửi tới bộ lập lịch Slurm bằng lệnh <code v-pre>sbatch</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">$ sbatch job.slurm</code></pre>
+</doc-codeblock></div>
+<p>Công việc phải được gửi đến từ head node của một cluster. Job scheduler sẽ sắp xếp công việc ở nơi nó sẽ giữ nguyên cho đến khi nó có đủ mức độ ưu tiên để chạy trên compute node. Tùy thuộc vào tính chất công việc và nguồn lực sẵn có, thời gian xếp hàng sẽ thay đổi từ vài giây đến nhiều ngày. Để kiểm tra trạng thái của các công việc được xếp hàng đợi và đang chạy, hãy sử dụng lệnh sau:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">$ squeue -u &lt;username&gt;</code></pre>
+</doc-codeblock></div>
+<p>Để xem thời gian bắt đầu dự kiến của các công việc của bạn:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">$ squeue -u &lt;username&gt; --start</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="các-câu-lệnh-slurmthường-dùng">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#các-câu-lệnh-slurmthường-dùng">#</doc-anchor-trigger>
+        <span><strong>Các câu lệnh Slurm thường dùng</strong></span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="tìm-hiểu-trước-về-hệ-thống">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tìm-hiểu-trước-về-hệ-thống">#</doc-anchor-trigger>
+        <span><strong>Tìm hiểu trước về hệ thống</strong></span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Lệnh</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>checkquota (chưa hoạt động)</td>
+<td>xem việc sử dụng dung lượng ổ đĩa của bạn, kiểm tra xem bạn có đủ dung lượng trong các thư mục của mình không, liên kết ở phía dưới để yêu cầu thêm dung lượng</td>
+</tr>
+<tr>
+<td>cat /etc/os-release</td>
+<td>thông tin về hệ điều hành</td>
+</tr>
+<tr>
+<td>lscpu</td>
+<td>thông tin về CPU trên nút cụ thể đó</td>
+</tr>
+<tr>
+<td>snodes</td>
+<td>thông tin về các nút tính toán</td>
+</tr>
+<tr>
+<td>shownodes</td>
+<td>thông tin về các nút tính toán (dễ đọc hơn)</td>
+</tr>
+<tr>
+<td>sinfo</td>
+<td>xem tất cả các nút của cụm đang được sử dụng như thế nào (ví dụ: chúng có ở trạng thái rảnh không? ngừng hoạt động? đang được sử dụng?)</td>
+</tr>
+<tr>
+<td>sininfo -p gpu</td>
+<td>xem GPU đang được sử dụng như thế nào</td>
+</tr>
+<tr>
+<td>qos</td>
+<td>&quot;quality of service&quot; - xem cách phân chia công việc và giới hạn trên mỗi phân vùng</td>
+</tr>
+<tr>
+<td>top</td>
+<td>hiển thị hoạt động của bộ xử lý, các lệnh đang chạy (nhấn &#x27;q&#x27; để thoát)</td>
+</tr>
+<tr>
+<td>htop</td>
+<td>hiển thị hoạt động của bộ xử lý, các lệnh đang chạy, có màu sắc (nhấn &#x27;q&#x27; để thoát)</td>
+</tr>
+<tr>
+<td>sshare</td>
+<td>hiển thị các chia sẻ cụm được chỉ định bởi nhóm</td>
+</tr>
+<tr>
+<td>sprio -w</td>
+<td>xem mức độ ưu tiên công việc được chỉ định như thế nào (hiển thị trọng số cho từng yếu tố)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="gửi-một-job">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#gửi-một-job">#</doc-anchor-trigger>
+        <span><strong>Gửi một Job</strong></span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Lệnh</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sbatch</td>
+<td>gửi công việc của bạn tới người lên lịch</td>
+</tr>
+<tr>
+<td>chào</td>
+<td>yêu cầu một công việc tương tác trên (các) nút điện toán (xem bên dưới)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="sau-khi-job-được-submit">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sau-khi-job-được-submit">#</doc-anchor-trigger>
+        <span><strong>Sau khi Job được submit</strong></span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Yêu cầu</th>
+<th>Sự miêu tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>squeue</td>
+<td>hiển thị tất cả các công việc đang chạy hoặc chờ chạy</td>
+</tr>
+<tr>
+<td>squeue -u <username></td>
+<td>xem công việc của bạn đang chạy hoặc đang chờ chạy</td>
+</tr>
+<tr>
+<td>squeue --start</td>
+<td>báo cáo thời gian bắt đầu dự kiến ​​cho các công việc đang chờ xử lý</td>
+</tr>
+<tr>
+<td>squeue -j <jobid></td>
+<td>hiển thị các nút đang được sử dụng cho công việc đang chạy của bạn</td>
+</tr>
+<tr>
+<td>scontrol show jobid <jobid></td>
+<td>hiển thị thông tin chi tiết về công việc</td>
+</tr>
+<tr>
+<td>sprio</td>
+<td>hiển thị mức độ ưu tiên được giao cho các công việc đang chờ xử lý</td>
+</tr>
+<tr>
+<td>slurmtop</td>
+<td>hiển thị công việc hiện tại</td>
+</tr>
+<tr>
+<td>scancel</td>
+<td>hủy công việc (ví dụ: scancel 2534640)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="sau-khi-job-hoàn-thành">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sau-khi-job-hoàn-thành">#</doc-anchor-trigger>
+        <span><strong>Sau khi job hoàn thành</strong></span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Lệnh</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>seff <jobid></td>
+<td>xem kết quả công việc đã hoàn thành</td>
+</tr>
+<tr>
+<td>shistory</td>
+<td>hiển thị lịch sử công việc của bạn</td>
+</tr>
+<tr>
+<td>jobstats <jobid></td>
+<td>xem số liệu chính xác về bộ nhớ, CPU và GPU từ các công việc. Xem thêm về số liệu thống kê công việc.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="your-first-slurm-job">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#your-first-slurm-job">#</doc-anchor-trigger>
+        <span><strong>Your First Slurm Job</strong></span>
+    </h2>
+</doc-anchor-target>
+<p>Nếu bạn chưa quen với cụm HPC hoặc Slurm thì hãy xem hướng dẫn này để chạy công việc đầu tiên của bạn.</p>
+<doc-anchor-target id="terminology">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#terminology">#</doc-anchor-trigger>
+        <span><strong>Terminology</strong></span>
+    </h2>
+</doc-anchor-target>
+<p>Khi bạn SSH đến một cụm, bạn đang kết nối với head node, node này được tất cả người dùng chia sẻ. Việc chạy công việc trên nút đăng nhập bị <strong>CẤM</strong>. Các công việc hàng loạt và tương tác phải được gửi từ head node đến bộ lập lịch công việc của Slurm bằng cách sử dụng lệnh “srun”, &quot;sbatch&quot; và &quot;salloc&quot;. Sau khi xếp hàng đợi, các công việc sẽ được gửi đến các compute node thực hiện công việc tính toán thực tế.</p>
+<p>Mỗi CPU có nhiều lõi CPU. Chạy lệnh &quot;snodes&quot; và xem cột &quot;CPUS&quot; ở đầu ra để xem số lượng lõi CPU trên mỗi nút cho một cụm nhất định. Bạn sẽ thấy các giá trị như 28, 32, 40, 96 và 128. Nếu công việc của bạn yêu cầu số lượng lõi CPU trên mỗi nút trở xuống thì hầu như bạn luôn nên sử dụng --nodes=1 trong tập lệnh Slurm của mình. Các giá trị cho --ntasks và --cpus-per-task được giải thích rõ nhất bằng các ví dụ bên dưới.</p>
+<p>Lệnh --time đặt thời gian chạy tối đa cần thiết cho công việc của bạn. Bạn nên đặt giá trị này một cách chính xác nhưng hãy tính thêm 20% vì công việc sẽ bị hủy nếu nó không hoàn thành trước khi đạt đến giới hạn. Để đặt yêu cầu bộ nhớ của công việc bằng cách sử dụng --mem-per-cpu hoặc --mem.</p>
+<doc-anchor-target id="interactive-allocations-with-salloc">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#interactive-allocations-with-salloc">#</doc-anchor-trigger>
+        <span><strong>Interactive Allocations with salloc</strong></span>
+    </h2>
+</doc-anchor-target>
+<p>Nút đăng nhập của cụm chỉ có thể được sử dụng cho công việc tương tác rất nhẹ sử dụng tối đa 10% máy (lõi CPU và bộ nhớ) trong tối đa 10 phút. Điều này được thực thi nghiêm ngặt vì việc vi phạm quy tắc này thường có thể ảnh hưởng xấu đến công việc của những người dùng khác. Công việc tương tác chuyên sâu phải được thực hiện trên các nút điện toán bằng lệnh salloc. Để hoạt động tương tác trên nút điện toán có 1 lõi CPU và 4 GB bộ nhớ trong 20 phút, hãy sử dụng lệnh sau:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:20:00</code></pre>
+</doc-codeblock></div>
+<p>Giống như các công việc hàng loạt, việc phân bổ tương tác sẽ đi qua hệ thống xếp hàng. Điều này có nghĩa là khi clusterr bận, bạn sẽ phải đợi trước khi được cấp phân bổ. Bạn sẽ thấy đầu ra như sau:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">salloc: Pending job allocation 32280311
+salloc: job 32280311 queued and waiting for resources
+salloc: job 32280311 has been allocated resources
+salloc: Granted job allocation 32280311
+salloc: Waiting for resource configuration
+salloc: Nodes della-r4c1n13 are ready for job
+[aturing@della-r4c1n13 ~]$</code></pre>
+</doc-codeblock></div>
+<p>Sau thời gian chờ đợi, bạn sẽ được đưa vào một shell trên compute node nơi bạn có thể bắt đầu làm việc một cách tương tác. Lưu ý rằng việc phân bổ của bạn sẽ chấm dứt khi đạt đến giới hạn thời gian. Bạn có thể sử dụng lệnh thoát để kết thúc phiên và quay lại nút đăng nhập bất cứ lúc nào.</p>
+<p><strong>GPU</strong></p>
+<p>Để yêu cầu một nút có GPU:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:20:00 --gres=gpu:1 </code></pre>
+</doc-codeblock></div>
+<p><strong>Graphics</strong></p>
+<p>Nếu bạn đang làm việc với đồ họa thì hãy bật chuyển tiếp X11 (và xem các yêu cầu bổ sung):</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:20:00 --x11</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="gpu-job">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#gpu-job">#</doc-anchor-trigger>
+        <span><strong>GPU Job</strong></span>
+    </h2>
+</doc-anchor-target>
+<p>Xem số lượng GPU trên mỗi cluster tại trang thông tin cluster đó. Để sử dụng GPU trong công việc, hãy thêm câu lệnh SBATCH với tùy chọn --gres:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">#!/bin/bash
+#SBATCH --job-name=mnist         # create a short name for your job
+#SBATCH --nodes=1                # node count
+#SBATCH --ntasks=1               # total number of tasks across all nodes
+#SBATCH --cpus-per-task=1        # cpu-cores per task (&gt;1 if multi-threaded tasks)
+#SBATCH --mem-per-cpu=4G         # memory per cpu-core (4G is default)
+#SBATCH --gres=gpu:1             # number of gpus per node
+#SBATCH --time=00:01:00          # total run time limit (HH:MM:SS)
+
+module purge
+module load anaconda3/2023.3
+conda activate tf2-gpu
+
+python myscript.py</code></pre>
+</doc-codeblock></div>
+<p>Ví dụ: để sử dụng bốn GPU trên mỗi nút, dòng thích hợp sẽ là:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">#SBATCH --gres=gpu:4</code></pre>
+</doc-codeblock></div>
+<p>QUAN TRỌNG: Chỉ những mã được viết rõ ràng để chạy trên GPU mới có thể tận dụng GPU. Việc thêm tùy chọn --gres vào tập lệnh Slurm cho mã chỉ dành cho CPU sẽ không tăng tốc thời gian thực thi nhưng sẽ lãng phí tài nguyên, tăng thời gian xếp hàng và giảm mức độ ưu tiên của lần gửi công việc tiếp theo. Hơn nữa, một số mã chỉ được viết để sử dụng một GPU duy nhất nên tránh yêu cầu nhiều GPU trừ khi mã của bạn có thể sử dụng chúng. Nếu mã có thể sử dụng nhiều GPU thì bạn nên tiến hành phân tích tỷ lệ để tìm ra số lượng GPU tối ưu để sử dụng.</p>
+<p>Xem trang Điện toán GPU để biết thêm thông tin về GPU tại Princeton. Lưu ý rằng một số mã yêu cầu sử dụng nhiều lõi CPU cùng với GPU để có hiệu suất tối ưu.</p>
+<doc-anchor-target id="jobarrays">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#jobarrays">#</doc-anchor-trigger>
+        <span><strong>Job Arrays</strong></span>
+    </h2>
+</doc-anchor-target>
+<p>Mảng công việc được dùng để chạy cùng một công việc nhiều lần mà chỉ có những khác biệt nhỏ giữa các công việc. Ví dụ: giả sử bạn cần chạy 100 công việc, mỗi công việc có một giá trị hạt giống khác nhau cho trình tạo số ngẫu nhiên. Hoặc có thể bạn muốn chạy cùng một tập lệnh phân tích dữ liệu cho từng bang trong số 50 tiểu bang ở Hoa Kỳ. Job array là lựa chọn tốt nhất cho những trường hợp như vậy.</p>
+<p>Dưới đây là một ví dụ về tập lệnh Slurm để chạy Python trong đó có 5 công việc:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">#!/bin/bash
+#SBATCH --job-name=array-job     # create a short name for your job
+#SBATCH --output=slurm-%A.%a.out # stdout file
+#SBATCH --error=slurm-%A.%a.err  # stderr file
+#SBATCH --nodes=1                # node count
+#SBATCH --ntasks=1               # total number of tasks across all nodes
+#SBATCH --cpus-per-task=1        # cpu-cores per task (&gt;1 if multi-threaded tasks)
+#SBATCH --mem-per-cpu=4G         # memory per cpu-core (4G is default)
+#SBATCH --time=00:01:00          # total run time limit (HH:MM:SS)
+#SBATCH --array=0-4              # job array with index values 0, 1, 2, 3, 4
+
+echo &quot;My SLURM_ARRAY_JOB_ID is $SLURM_ARRAY_JOB_ID.&quot;
+echo &quot;My SLURM_ARRAY_TASK_ID is $SLURM_ARRAY_TASK_ID&quot;
+echo &quot;Executing on the machine:&quot; $(hostname)
+
+module purge
+module load anaconda3/2023.3
+conda activate myenv
+
+python myscript.py</code></pre>
+</doc-codeblock></div>
+<p>Dòng chính trong tập lệnh Slurm ở trên là:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">#SBATCH --array=0-4</code></pre>
+</doc-codeblock></div>
+<p>Trong ví dụ này, tập lệnh Slurm sẽ chạy năm công việc. Mỗi công việc sẽ có giá trị SLURM_ARRAY_TASK_ID khác nhau (tức là 0, 1, 2, 3, 4). Giá trị của SLURM_ARRAY_TASK_ID có thể được sử dụng để phân biệt các công việc trong mảng. Xem ví dụ đầy đủ về Python. Người ta có thể chuyển SLURM_ARRAY_TASK_ID cho tệp thực thi dưới dạng tham số dòng lệnh hoặc tham chiếu nó dưới dạng biến môi trường. Sử dụng cách tiếp cận thứ hai, một vài dòng đầu tiên của tập lệnh Python (được gọi là myscript.py ở trên) có thể trông như thế này:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import os
+idx = int(os.environ[&quot;SLURM_ARRAY_TASK_ID&quot;])
+parameters = [2.5, 5.0, 7.5, 10.0, 12.5]
+myparam = parameters[idx]
+# execute the rest of the script using myparam</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="các-công-việc-sử-dụng-bộ-nhớ-lớn">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#các-công-việc-sử-dụng-bộ-nhớ-lớn">#</doc-anchor-trigger>
+        <span>Các công việc sử dụng bộ nhớ lớn</span>
+    </h2>
+</doc-anchor-target>
+<p>Một lợi thế của việc sử dụng cụm HPC trên máy tính xách tay hoặc máy trạm của bạn là lượng RAM lớn có sẵn trên mỗi nút. Ví dụ: trên một số cụm, bạn có thể chạy một công việc với bộ nhớ 100 GB. Điều này có thể rất hữu ích khi làm việc với một tập dữ liệu lớn. Để tìm hiểu xem mỗi nút có bao nhiêu bộ nhớ, hãy chạy lệnh snodes và xem cột MEMORY tính bằng megabyte.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">#!/bin/bash
+#SBATCH --job-name=slurm-test    # create a short name for your job
+#SBATCH --nodes=1                # node count
+#SBATCH --ntasks=1               # total number of tasks across all nodes
+#SBATCH --cpus-per-task=1        # cpu-cores per task (&gt;1 if multi-threaded tasks)
+#SBATCH --mem=100G               # memory per node (4G per cpu-core is default)
+#SBATCH --time=00:01:00          # total run time limit (HH:MM:SS)
+
+module purge
+module load anaconda3/2023.3
+conda activate micro-env
+
+python myscript.py</code></pre>
+</doc-codeblock></div>
+<p>Ví dụ trên chạy tập lệnh Python sử dụng 1 lõi CPU và 100 GB bộ nhớ. Trong tất cả các tập lệnh Slurm, bạn nên sử dụng giá trị chính xác cho bộ nhớ cần thiết nhưng thêm 20% để đảm bảo an toàn. Để biết thêm, hãy xem Phân bổ bộ nhớ.</p>
+<doc-anchor-target id="báo-cáo-hiện-tại-chưa-hỗ-trợ">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#báo-cáo-hiện-tại-chưa-hỗ-trợ">#</doc-anchor-trigger>
+        <span><strong>Báo cáo (hiện tại chưa hỗ trợ)</strong></span>
+    </h2>
+</doc-anchor-target>
+<p>Nếu bạn đưa chỉ thị thư SBATCH bên dưới vào tập lệnh Slurm thì bạn sẽ nhận được email sau khi mỗi công việc kết thúc:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">#SBATCH --mail-type=end
+#SBATCH --mail-user=&lt;yourEmail&gt;</code></pre>
+</doc-codeblock></div>
+<p>Dưới đây là một báo cáo mẫu:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">================================================================================
+                              Slurm Job Statistics
+================================================================================
+         Job ID: 1234567
+  NetID/Account: aturing/math
+       Job Name: sys_logic_ordinals.sh
+          State: COMPLETED
+          Nodes: 1
+      CPU Cores: 1
+     CPU Memory: 64GB
+           GPUs: 1
+  QOS/Partition: gpu-short/gpu
+        Cluster: della
+     Start Time: Thu May 11, 2023 at 1:52 PM
+       Run Time: 14:27:09
+     Time Limit: 16:00:00
+
+                              Overall Utilization
+================================================================================
+  CPU utilization  [|||||||||||||||||||||||||||||||||||||||||||||| 93%]
+  CPU memory usage [|||||||||||||||                                30%]
+  GPU utilization  [||||||||||||||||||||||||||||||||||||||||||     85%]
+  GPU memory usage [|||||||||||||||||||||||||||||||||||||||||||||| 92%]
+
+                              Detailed Utilization
+================================================================================
+  CPU utilization per node (CPU time used/run time)
+      della-l05g2: 00:25:16/00:27:09 (efficiency=93.1%)
+
+  CPU memory usage per node - used/allocated
+      della-l05g2: 19.3GB/64.0GB (19.3GB/64.0GB per core of 1)
+
+  GPU utilization per node
+      della-l05g2 (GPU 1): 85.3%
+
+  GPU memory usage per node - maximum used/total
+      della-l05g2 (GPU 1): 73.6GB/80.0GB (92.0%)
+
+                                     Notes
+================================================================================</code></pre>
+</doc-codeblock></div>
+<p>Báo cáo cung cấp thông tin về thời gian chạy, mức sử dụng CPU, mức sử dụng bộ nhớ, v.v. Bạn nên kiểm tra các giá trị này để xác định xem bạn có đang sử dụng tài nguyên đúng cách hay không. Xem trang Thống kê công việc để biết thêm thông tin.</p>
+<p>Thời gian xếp hàng của bạn một phần được xác định bởi lượng tài nguyên bạn yêu cầu. Giá trị chia sẻ công bằng của bạn, một phần quyết định mức độ ưu tiên của công việc tiếp theo của bạn, sẽ giảm tỷ lệ với lượng tài nguyên bạn đã sử dụng trong 30 ngày trước đó.</p>
+<doc-anchor-target id="tài-liệu-đọc-thêm">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tài-liệu-đọc-thêm">#</doc-anchor-trigger>
+        <span><strong>Tài liệu đọc thêm</strong></span>
+    </h2>
+</doc-anchor-target>
+<p><strong><a href="https://researchcomputing.princeton.edu/education/external-online-resources/slurm">external resources for learning Slurm</a></strong>.</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../contents/usage/learning-material/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Nguồn tài liệu học sử dụng Linux</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../contents/glossary/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Bảng thuật ngữ</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2023. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "SLURM", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>
