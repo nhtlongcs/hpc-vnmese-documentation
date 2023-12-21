@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756444583213">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756444925530">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -31,11 +31,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="static/logo.webp" rel="icon">
-    <link href="resources/css/retype.css?v=3.5.0.756444583213" rel="stylesheet">
+    <link href="resources/css/retype.css?v=3.5.0.756444925530" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.756444583213" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.756444925530" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.756444583213" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.756444925530" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -192,41 +192,41 @@
 <p>Tất cả người dùng hệ thống đều phải có kiến thức làm việc cơ bản về hệ thống. Điều này rất quan trọng vì người dùng thể <em>vô tình lãng phí tài nguyên hoặc thậm chí ảnh hưởng xấu đến công việc của người khác</em>.</p>
 <p>Miễn trừ trách nhiệm: tài liệu này là một bản dịch phù hợp với hệ thống hiện tại của server ĐH KHTN- được dịch từ <a href="https://researchcomputing.princeton.edu/">https://researchcomputing.princeton.edu/</a>.</p>
 <p>Outline hướng dẫn này bao gồm các chủ đề sau:</p>
-<ol class="contains-task-list">
-<li class="task-list-item">Giới thiệu về cluster <input disabled="disabled" type="checkbox" />
+<ol>
+<li>Giới thiệu về cluster
 <ul class="contains-task-list">
-<li class="task-list-item">Mô tả kiến trúc cluster <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Làm thế nào để có được một tài khoản <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Cách kết nối với cluster <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Cách làm việc với filesystem và storage - các best practice <input disabled="disabled" type="checkbox" /></li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Mô tả kiến trúc cluster</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Làm thế nào để có được một tài khoản</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Cách kết nối với cluster</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" /> Cách làm việc với filesystem và storage - các best practice</li>
 </ul>
 </li>
-<li class="task-list-item">Hướng dẫn sử dụng server <input disabled="disabled" type="checkbox" checked="checked" />
+<li>Hướng dẫn sử dụng server
 <ul class="contains-task-list">
-<li class="task-list-item">Kiến thức nền Linux <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Giới thiệu về Slurm <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Hướng dẫn từng bước để chạy tác vụ Slurm đầu tiên <input disabled="disabled" type="checkbox" checked="checked" /></li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Kiến thức nền Linux</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Giới thiệu về Slurm</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Hướng dẫn từng bước để chạy tác vụ Slurm đầu tiên</li>
 </ul>
 </li>
-<li class="task-list-item">Software Modules <input disabled="disabled" type="checkbox" />
+<li>Software Modules
 <ul class="contains-task-list">
-<li class="task-list-item">Cách sử dụng phần mềm đã cài đặt trên cluster (thông qua module) <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (WIP) <input disabled="disabled" type="checkbox" /></li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Cách sử dụng phần mềm đã cài đặt trên cluster (thông qua module)</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" /> Cách cài đặt phần mềm riêng (cần cài qua apt-install hoặc yêu cầu sudo) -solution1 psi 2 request (WIP)</li>
 </ul>
 </li>
-<li class="task-list-item">Quy định <input disabled="disabled" type="checkbox" />
+<li>Quy định
 <ul class="contains-task-list">
-<li class="task-list-item">Quy định về sử dụng tài nguyên <input disabled="disabled" type="checkbox" /></li>
-<li class="task-list-item">Quy định về quản lý tác vụ <input disabled="disabled" type="checkbox" /></li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" /> Quy định về sử dụng tài nguyên</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" /> Quy định về quản lý tác vụ</li>
 </ul>
 </li>
-<li class="task-list-item">Liên hệ nhờ giúp đỡ <input disabled="disabled" type="checkbox" checked="checked" />
+<li>Liên hệ nhờ giúp đỡ
 <ul class="contains-task-list">
-<li class="task-list-item">FAQ (Các câu hỏi thường gặp) <input disabled="disabled" type="checkbox" checked="checked" /></li>
-<li class="task-list-item">Các bước hỗ trợ <input disabled="disabled" type="checkbox" checked="checked" /></li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> FAQ (Các câu hỏi thường gặp)</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Các bước hỗ trợ</li>
 </ul>
 </li>
-<li class="task-list-item">Các thuật ngữ nên đọc <input disabled="disabled" type="checkbox" checked="checked" /></li>
+<li>Các thuật ngữ nên đọc</li>
 </ol>
 
                                 
