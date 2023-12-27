@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756983112385">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756983285570">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -31,11 +31,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../static/logo.webp" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.756983112385" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.756983285570" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756983112385" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756983285570" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756983112385" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756983285570" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -221,7 +221,7 @@ python myscript.py</code></pre>
 <ul>
 <li>Dòng đầu tiên của tập lệnh Slurm chỉ định shell Unix sẽ được sử dụng.</li>
 <li>Tiếp theo là một loạt lệnh #SBATCH đặt ra các yêu cầu về tài nguyên và các tham số khác của công việc.</li>
-<li>Tập lệnh trên yêu cầu 1 lõi CPU và 4 GB bộ nhớ trong thời gian chạy 1 phút. Những thay đổi cần thiết đối với môi trường được thực hiện bằng cách tải mô-đun môi trường anaconda3/ và kích hoạt một môi trường Conda cụ thể.</li>
+<li>Tập lệnh trên yêu cầu 1 lõi CPU và 4 GB bộ nhớ trong thời gian chạy 1 phút. Những thay đổi cần thiết đối với môi trường được thực hiện bằng cách tải module môi trường anaconda3/ và kích hoạt một môi trường Conda cụ thể.</li>
 <li>Cuối cùng, công việc cần thực hiện, tức là thực thi tập lệnh Python, được chỉ định ở dòng cuối cùng.</li>
 </ul>
 <p>Xem bên dưới để biết thông tin về sự tương ứng giữa các tác vụ và lõi CPU. Nếu công việc của bạn không hoàn thành trước thời hạn quy định thì nó sẽ bị hủy. Bạn nên sử dụng giá trị chính xác cho thời gian ước lượng nhưng thêm thêm 20% để đảm bảo an toàn.</p>
@@ -497,7 +497,7 @@ python myscript.py</code></pre>
         <span><strong>Job Arrays</strong></span>
     </h2>
 </doc-anchor-target>
-<p>Mảng công việc được dùng để chạy cùng một công việc nhiều lần mà chỉ có những khác biệt nhỏ giữa các công việc. Ví dụ: giả sử bạn cần chạy 100 công việc, mỗi công việc có một giá trị hạt giống khác nhau cho trình tạo số ngẫu nhiên. Hoặc có thể bạn muốn chạy cùng một tập lệnh phân tích dữ liệu cho từng bang trong số 50 tiểu bang ở Hoa Kỳ. Job array là lựa chọn tốt nhất cho những trường hợp như vậy.</p>
+<p>Mảng công việc được dùng để chạy cùng một công việc nhiều lần mà chỉ có những khác biệt nhỏ giữa các công việc. Ví dụ: giả sử bạn cần chạy 100 công việc, mỗi công việc có một giá trị hạt giống khác nhau cho trình tạo số ngẫu nhiên. Hoặc có thể bạn muốn chạy cùng một tập lệnh phân tích dữ liệu cho từng file trong tổng số 50 files. Job array là lựa chọn tốt nhất cho những trường hợp như vậy.</p>
 <p>Dưới đây là một ví dụ về tập lệnh Slurm để chạy Python trong đó có 5 công việc:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">#!/bin/bash
