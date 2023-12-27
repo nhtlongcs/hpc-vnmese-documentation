@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756983285570">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756983462220">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -31,12 +31,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../static/logo.webp" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.756983285570" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.756983462220" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756983285570" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756983462220" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756983285570" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.756983285570" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756983462220" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.756983462220" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -229,7 +229,8 @@
 <li></li>
 </ul>
 </li>
-<li><p><strong>SSH vào cluster</strong></p>
+<li><p><strong>SSH vào cluster</strong>
+Trước khi SSH, bạn cần sử dụng VPN để truy cập vào mạng của khoa, xem qua <a href="https://www.fit.hcmus.edu.vn/vn/Default.aspx?tabid=292&amp;id=12985">hướng dẫn truy cập VPN</a> để biết thêm thông tin chi tiết.</p>
 <p>Cú pháp sử dụng ssh giống nhau trong tất cả các trường hợp trên. Hãy nhớ đảm bảo rằng bạn đang sử dụng VPN, sau đó trên dòng lệnh bạn đã truy cập ở bước trước, hãy nhập</p>
 <p><code v-pre>ssh &lt;YourAccountName&gt;@&lt;host&gt; -p &lt;port&gt;</code></p>
 <p>Nếu đây là lần đầu tiên bạn kết nối với cluster này từ bất kỳ máy tính nào bạn đang sử dụng, thì bạn sẽ thấy nhận xét về finger print cùng với câu hỏi Trả lời &#x27;có&#x27; và nhấn Enter.</p>
@@ -259,7 +260,7 @@
     </h2>
 </doc-anchor-target>
 <p>Nếu kết nối SSH của bạn đột ngột bị hỏng thì lệnh bạn đang chạy sẽ chấm dứt. Điều này xuất hiện rất thường xuyên, nơi các tác vụ được chạy trực tiếp từ dòng lệnh chứ không phải từ bộ lập lịch công việc.</p>
-<p>Một giải pháp cho vấn đề này là <code v-pre>tmux</code>. Nó được cài đặt trên tất cả các cluster của trường đại học và cho phép bạn bắt đầu một phiên shell, thay vì điều khiển từ xa thông qua SSH, nó tồn tại trên máy chủ.</p>
+<p>Một giải pháp cho vấn đề này là <code v-pre>tmux</code>. Nó được cài đặt trên tất cả các cluster của khoa và cho phép bạn bắt đầu một phiên shell, thay vì điều khiển từ xa thông qua SSH, nó tồn tại trên máy chủ.</p>
 <p>Một trường hợp sử dụng đơn giản sẽ là:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">$ ssh &lt;YourNetID&gt;@&lt;hostname&gt;
