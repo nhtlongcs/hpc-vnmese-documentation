@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756982615869">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756983112385">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -31,11 +31,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../static/logo.webp" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.756982615869" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.756983112385" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756982615869" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756983112385" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756982615869" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756983112385" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -490,7 +490,7 @@ python myscript.py</code></pre>
 <pre class="language-none"><code v-pre class="language-none">#SBATCH --gres=gpu:4</code></pre>
 </doc-codeblock></div>
 <p>QUAN TRỌNG: Chỉ những mã được viết rõ ràng để chạy trên GPU mới có thể tận dụng GPU. Việc thêm tùy chọn --gres vào tập lệnh Slurm cho mã chỉ dành cho CPU sẽ không tăng tốc thời gian thực thi nhưng sẽ lãng phí tài nguyên, tăng thời gian xếp hàng và giảm mức độ ưu tiên của lần gửi công việc tiếp theo. Hơn nữa, một số mã chỉ được viết để sử dụng một GPU duy nhất nên tránh yêu cầu nhiều GPU trừ khi mã của bạn có thể sử dụng chúng. Nếu mã có thể sử dụng nhiều GPU thì bạn nên tiến hành phân tích tỷ lệ để tìm ra số lượng GPU tối ưu để sử dụng.</p>
-<p>Xem trang Điện toán GPU để biết thêm thông tin về GPU tại Princeton. Lưu ý rằng một số mã yêu cầu sử dụng nhiều lõi CPU cùng với GPU để có hiệu suất tối ưu.</p>
+<p>Xem <a href="../introduce-to-cluster/">thông tin hệ thống</a> để biết về cấu hình của server. Lưu ý rằng một số mã yêu cầu sử dụng nhiều lõi CPU cùng với GPU để có hiệu suất tối ưu.</p>
 <doc-anchor-target id="jobarrays">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#jobarrays">#</doc-anchor-trigger>

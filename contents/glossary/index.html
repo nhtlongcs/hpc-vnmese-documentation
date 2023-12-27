@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756982615869">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756983112385">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -31,11 +31,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../static/logo.webp" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.756982615869" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.756983112385" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756982615869" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756983112385" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756982615869" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756983112385" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -203,7 +203,7 @@
 </tr>
 <tr>
 <td>Cluster</td>
-<td>Cụm là một nhóm các máy tính, được kết nối bằng mạng để hoạt động như thể chúng là một, máy tính lớn có nhiều tài nguyên</td>
+<td>Cluster là một nhóm các máy tính, được kết nối bằng mạng để hoạt động như thể chúng là một, máy tính lớn có nhiều tài nguyên</td>
 </tr>
 <tr>
 <td>Command line</td>
@@ -243,7 +243,7 @@
 </tr>
 <tr>
 <td>Head Node</td>
-<td>Máy tính chính kết nối một cụm máy tính với mạng bên ngoài. Trên các cụm của Princeton chỉ có nút đầu mới có quyền truy cập internet.</td>
+<td>Máy tính chính kết nối một cluster với mạng bên ngoài. Trên các cluster của Khoa CNTT chỉ có nút đầu mới có quyền truy cập internet.</td>
 </tr>
 <tr>
 <td>Linux</td>
@@ -251,19 +251,19 @@
 </tr>
 <tr>
 <td>Local machine</td>
-<td>Một người thường kết nối với cụm HPC bằng SSH từ máy tính xách tay hoặc máy tính để bàn. Trong trường hợp này, máy tính xách tay hoặc máy tính để bàn là máy cục bộ và nút đăng nhập của cụm HPC là máy từ xa.</td>
+<td>Một người thường kết nối với cluster bằng SSH từ máy tính xách tay hoặc máy tính để bàn. Trong trường hợp này, máy tính xách tay hoặc máy tính để bàn là máy cục bộ và nút đăng nhập của cluster là máy từ xa.</td>
 </tr>
 <tr>
 <td>Memory</td>
-<td>Máy tính lưu trữ dữ liệu ở hai nơi: Bộ nhớ truy cập ngẫu nhiên (RAM) và ổ cứng. Việc đọc và ghi vào RAM nhanh hơn nhiều so với một tệp trên ổ cứng nên các chương trình máy tính lưu trữ dữ liệu của chúng trong RAM nhiều nhất có thể. Dung lượng cần thiết để lưu trữ dữ liệu trong RAM được gọi là bộ nhớ. Ví dụ: một chương trình lưu trữ 1 tỷ số dấu phẩy động sẽ cần 8 GB bộ nhớ vì mỗi số cần 8 byte. Bạn sẽ cần yêu cầu một lượng bộ nhớ nhất định trong tập lệnh Slurm của mình khi chạy các tác vụ hàng loạt trên cụm HPC.</td>
+<td>Máy tính lưu trữ dữ liệu ở hai nơi: Bộ nhớ truy cập ngẫu nhiên (RAM) và ổ cứng. Việc đọc và ghi vào RAM nhanh hơn nhiều so với một tệp trên ổ cứng nên các chương trình máy tính lưu trữ dữ liệu của chúng trong RAM nhiều nhất có thể. Dung lượng cần thiết để lưu trữ dữ liệu trong RAM được gọi là bộ nhớ. Ví dụ: một chương trình lưu trữ 1 tỷ số dấu phẩy động sẽ cần 8 GB bộ nhớ vì mỗi số cần 8 byte. Bạn sẽ cần yêu cầu một lượng bộ nhớ nhất định trong tập lệnh Slurm của mình khi chạy các tác vụ hàng loạt trên cluster.</td>
 </tr>
 <tr>
 <td>Module</td>
-<td>Các cụm HPC có rất nhiều phần mềm được cài đặt sẵn. Mỗi phần mềm yêu cầu một cấu hình khác nhau nên không thể có sẵn tất cả phần mềm cùng một lúc. Thay vào đó, các mô-đun môi trường được sử dụng cho phép người dùng chỉ định phần mềm nào sẽ tải. Bạn có thể xem các mô-đun có sẵn bằng cách chạy lệnh &quot;mô-đun tận dụng&quot;. Để kích hoạt phần mềm cụ thể, hãy xem lệnh &quot;tải mô-đun&quot; trên trang Mô-đun môi trường.</td>
+<td>Các cluster có rất nhiều phần mềm được cài đặt sẵn. Mỗi phần mềm yêu cầu một cấu hình khác nhau nên không thể có sẵn tất cả phần mềm cùng một lúc. Thay vào đó, các mô-đun môi trường được sử dụng cho phép người dùng chỉ định phần mềm nào sẽ tải. Bạn có thể xem các mô-đun có sẵn bằng cách chạy lệnh &quot;mô-đun tận dụng&quot;. Để kích hoạt phần mềm cụ thể, hãy xem lệnh &quot;tải mô-đun&quot; trên trang Mô-đun môi trường.</td>
 </tr>
 <tr>
 <td>Node</td>
-<td>Từ đồng nghĩa với máy tính hoặc máy chủ. Trong cụm, một nút là một trong những máy tính độc lập. Mỗi nút trên cụm Máy tính Nghiên cứu Princeton có ít nhất hai CPU và mỗi CPU bao gồm nhiều lõi. Một công việc nối tiếp sẽ chạy trên một trong các lõi của một trong các CPU của nút.</td>
+<td>Từ đồng nghĩa với máy tính hoặc máy chủ. Trong cluster, một nút là một trong những máy tính độc lập. Mỗi nút trên cluster của Khoa CNTT có ít nhất hai CPU và mỗi CPU bao gồm nhiều lõi. Một công việc nối tiếp sẽ chạy trên một trong các lõi của một trong các CPU của nút.</td>
 </tr>
 <tr>
 <td>Parallel Job</td>
@@ -275,7 +275,7 @@
 </tr>
 <tr>
 <td>Remote machine</td>
-<td>Trong thế giới điện toán hiệu năng cao (HPC), người ta thường kết nối với nút đăng nhập một cụm HPC bằng SSH từ máy tính xách tay hoặc máy tính để bàn. Trong trường hợp này, nút đăng nhập của cụm là máy từ xa và máy tính xách tay hoặc máy tính để bàn của người dùng là máy cục bộ. Một ví dụ về máy từ xa là adroit.princeton.edu.</td>
+<td>Trong thế giới điện toán hiệu năng cao (HPC), người ta thường kết nối với nút đăng nhập một cluster bằng SSH từ máy tính xách tay hoặc máy tính để bàn. Trong trường hợp này, nút đăng nhập của cluster là máy từ xa và máy tính xách tay hoặc máy tính để bàn của người dùng là máy cục bộ.</td>
 </tr>
 <tr>
 <td>Serial Job</td>
@@ -287,11 +287,11 @@
 </tr>
 <tr>
 <td>Shell</td>
-<td>Shell là chương trình cho phép bạn chạy các lệnh trên dòng lệnh hoặc thực thi các lệnh trong tập lệnh. Khi bạn kết nối lần đầu với nút đăng nhập của cụm HPC, bạn sẽ chạm tới shell. Có nhiều loại shell khác nhau như bash, tcsh và zsh. Mỗi shell sử dụng một cú pháp khác nhau.</td>
+<td>Shell là chương trình cho phép bạn chạy các lệnh trên dòng lệnh hoặc thực thi các lệnh trong tập lệnh. Khi bạn kết nối lần đầu với nút đăng nhập của cluster, bạn sẽ chạm tới shell. Có nhiều loại shell khác nhau như bash, tcsh và zsh. Mỗi shell sử dụng một cú pháp khác nhau.</td>
 </tr>
 <tr>
 <td>Slurm</td>
-<td>Một hệ thống giúp quản lý và sắp xếp công việc trên một cụm. Được sử dụng bởi các cụm Princeton lớn hơn. Viết tắt của “Quản lý tài nguyên người dùng Linux đơn giản”.</td>
+<td>Một hệ thống giúp quản lý và sắp xếp công việc trên một Cluster. Viết tắt của “Quản lý tài nguyên người dùng Linux đơn giản”.</td>
 </tr>
 <tr>
 <td>Source Code</td>
