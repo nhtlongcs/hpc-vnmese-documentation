@@ -32,7 +32,7 @@ python myscript.py
 
 - Dòng đầu tiên của tập lệnh Slurm chỉ định shell Unix sẽ được sử dụng.
 - Tiếp theo là một loạt lệnh #SBATCH đặt ra các yêu cầu về tài nguyên và các tham số khác của công việc.
-- Tập lệnh trên yêu cầu 1 lõi CPU và 4 GB bộ nhớ trong thời gian chạy 1 phút. Những thay đổi cần thiết đối với môi trường được thực hiện bằng cách tải mô-đun môi trường anaconda3/ và kích hoạt một môi trường Conda cụ thể.
+- Tập lệnh trên yêu cầu 1 lõi CPU và 4 GB bộ nhớ trong thời gian chạy 1 phút. Những thay đổi cần thiết đối với môi trường được thực hiện bằng cách tải module môi trường anaconda3/ và kích hoạt một môi trường Conda cụ thể.
 - Cuối cùng, công việc cần thực hiện, tức là thực thi tập lệnh Python, được chỉ định ở dòng cuối cùng.
 
 Xem bên dưới để biết thông tin về sự tương ứng giữa các tác vụ và lõi CPU. Nếu công việc của bạn không hoàn thành trước thời hạn quy định thì nó sẽ bị hủy. Bạn nên sử dụng giá trị chính xác cho thời gian ước lượng nhưng thêm thêm 20% để đảm bảo an toàn.
@@ -185,7 +185,7 @@ Xem [thông tin hệ thống](../introduce-to-cluster/) để biết về cấu 
 
 ## **Job Arrays**
 
-Mảng công việc được dùng để chạy cùng một công việc nhiều lần mà chỉ có những khác biệt nhỏ giữa các công việc. Ví dụ: giả sử bạn cần chạy 100 công việc, mỗi công việc có một giá trị hạt giống khác nhau cho trình tạo số ngẫu nhiên. Hoặc có thể bạn muốn chạy cùng một tập lệnh phân tích dữ liệu cho từng bang trong số 50 tiểu bang ở Hoa Kỳ. Job array là lựa chọn tốt nhất cho những trường hợp như vậy.
+Mảng công việc được dùng để chạy cùng một công việc nhiều lần mà chỉ có những khác biệt nhỏ giữa các công việc. Ví dụ: giả sử bạn cần chạy 100 công việc, mỗi công việc có một giá trị hạt giống khác nhau cho trình tạo số ngẫu nhiên. Hoặc có thể bạn muốn chạy cùng một tập lệnh phân tích dữ liệu cho từng file trong tổng số 50 files. Job array là lựa chọn tốt nhất cho những trường hợp như vậy.
 
 Dưới đây là một ví dụ về tập lệnh Slurm để chạy Python trong đó có 5 công việc:
 

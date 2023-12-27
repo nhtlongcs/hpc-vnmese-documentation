@@ -7,7 +7,7 @@ order: 0
 
 Một số lượng lớn các phần mềm được cài đặt trên các cụm HPC. Để quản lí chúng, ta sử dụng software modules. Một số phần mềm được cung cấp thông qua các module chung. Sau khi đọc xong ta có thể
 
-- sử dụng "module avail” để liệt kê các mô-đun có sẵn
+- sử dụng "module avail” để liệt kê các module có sẵn
 - load và unload modules
 - sử dụng "module show” để xem module thay đổi môi trường của bạn như thế nào
 
