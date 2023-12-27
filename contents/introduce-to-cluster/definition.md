@@ -2,7 +2,7 @@
 
 Trước đây, các máy được sử dụng để tính toán hiệu năng cao được gọi là "siêu máy tính" hoặc các máy độc lập lớn có phần cứng chuyên dụng, rất khác với những gì bạn thấy ở máy tính ở nhà và văn phòng.
 
-Tuy nhiên, ngày nay, phần lớn các siêu máy tính thay vào đó là các cụm máy tính (hay gọi tắt là "Cluster") --- tập hợp các máy tính độc lập được nối mạng với nhau. Các máy tính được kết nối với nhau này được trang bị phần mềm để điều phối các chương trình trên (hoặc trên) các máy tính đó và do đó chúng có thể làm việc cùng nhau để thực hiện các tác vụ tính toán chuyên sâu.
+Tuy nhiên, ngày nay, phần lớn các siêu máy tính thay vào đó là các cluster (hay gọi tắt là "Cluster") --- tập hợp các máy tính độc lập được nối mạng với nhau. Các máy tính được kết nối với nhau này được trang bị phần mềm để điều phối các chương trình trên (hoặc trên) các máy tính đó và do đó chúng có thể làm việc cùng nhau để thực hiện các tác vụ tính toán chuyên sâu.
 
 Các hệ thống tính toán cung cấp phần lớn là các cụm. Mỗi máy tính trong cụm được gọi là một **node** (thuật ngữ "Node" xuất phát từ lý thuyết đồ thị) và chúng ta thường nói về hai loại nút: **head node** và **compute nodes**.
 

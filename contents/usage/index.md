@@ -181,7 +181,7 @@ Ví dụ: để sử dụng bốn GPU trên mỗi nút, dòng thích hợp sẽ 
 
 QUAN TRỌNG: Chỉ những mã được viết rõ ràng để chạy trên GPU mới có thể tận dụng GPU. Việc thêm tùy chọn --gres vào tập lệnh Slurm cho mã chỉ dành cho CPU sẽ không tăng tốc thời gian thực thi nhưng sẽ lãng phí tài nguyên, tăng thời gian xếp hàng và giảm mức độ ưu tiên của lần gửi công việc tiếp theo. Hơn nữa, một số mã chỉ được viết để sử dụng một GPU duy nhất nên tránh yêu cầu nhiều GPU trừ khi mã của bạn có thể sử dụng chúng. Nếu mã có thể sử dụng nhiều GPU thì bạn nên tiến hành phân tích tỷ lệ để tìm ra số lượng GPU tối ưu để sử dụng.
 
-Xem trang Điện toán GPU để biết thêm thông tin về GPU tại Princeton. Lưu ý rằng một số mã yêu cầu sử dụng nhiều lõi CPU cùng với GPU để có hiệu suất tối ưu.
+Xem [thông tin hệ thống](../introduce-to-cluster/) để biết về cấu hình của server. Lưu ý rằng một số mã yêu cầu sử dụng nhiều lõi CPU cùng với GPU để có hiệu suất tối ưu.
 
 ## **Job Arrays**
 
