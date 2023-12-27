@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756445211400">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756982615869">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Quy định</title>
-    <meta name="title" content="Quy định">
+    <title>Quy định về sử dụng t&#224;i nguy&#234;n</title>
+    <meta name="title" content="Quy định về sử dụng tài nguyên">
+    <meta name="description" content="Toàn bộ source code và dữ liệu cần được lưu ở đường dẫn /media/{username}">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://slurm.nhtlongcs.com/contents/rules/">
@@ -18,21 +19,23 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://slurm.nhtlongcs.com/contents/rules/">
-    <meta property="og:title" content="Quy định">
+    <meta property="og:title" content="Quy định về sử dụng tài nguyên">
+    <meta property="og:description" content="Toàn bộ source code và dữ liệu cần được lưu ở đường dẫn /media/{username}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://slurm.nhtlongcs.com/contents/rules/">
-    <meta property="twitter:title" content="Quy định">
+    <meta property="twitter:title" content="Quy định về sử dụng tài nguyên">
+    <meta property="twitter:description" content="Toàn bộ source code và dữ liệu cần được lưu ở đường dẫn /media/{username}">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../static/logo.webp" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.756445211400" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.756982615869" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756445211400" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756982615869" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756445211400" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756982615869" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -179,12 +182,24 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="quy-định" class="break-words">
+<doc-anchor-target id="quy-định-về-sử-dụng-tài-nguyên" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#quy-định">#</doc-anchor-trigger>
-        <span>Quy định</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#quy-định-về-sử-dụng-tài-nguyên">#</doc-anchor-trigger>
+        <span><strong>Quy định về sử dụng tài nguyên</strong></span>
     </h1>
 </doc-anchor-target>
+<ul>
+<li>Toàn bộ source code và dữ liệu cần được lưu ở đường dẫn <code v-pre>/media/{username}</code></li>
+<li>Tuyệt đối không lưu dữ liệu ở <code v-pre>/home/{username}</code> do không có nhiều dung lượng lưu trữ tại đây.</li>
+<li><strong>Lưu ý:</strong> đối với thư mục ẩn (ví dụ như <code v-pre>/home/{username}/.cache</code>) cũng phải được chuyển qua <code v-pre>/media/{username}</code>.</li>
+</ul>
+<doc-anchor-target id="quy-định-về-quản-lý-tác-vụ">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#quy-định-về-quản-lý-tác-vụ">#</doc-anchor-trigger>
+        <span><strong>Quy định về quản lý tác vụ</strong></span>
+    </h1>
+</doc-anchor-target>
+<p><strong>Quy tắc 10-10</strong> Trước tiên, điều quan trọng cần biết là bạn có thể chạy các tác vụ thử nghiệm trên các nút chính chạy tối đa 10 phút và sử dụng tới 10% số lõi CPU và bộ nhớ. Bạn có thể sẽ làm gián đoạn công việc của người khác nếu bạn vượt quá những giới hạn này và bạn có thể bị quản trị viên hệ thống của chúng tôi cảnh cáo nếu bạn vượt quá những quy tắc này.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -251,6 +266,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Quy định", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Quy định về sử dụng tài nguyên", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
