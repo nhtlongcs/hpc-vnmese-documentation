@@ -27,8 +27,9 @@ Trên các máy Windows 10 cũng có ứng dụng hỗ trợ SSH. (Nếu vì lý
 1. **Truy cập Terminal trên máy tính của bạn**
     - Linux: mở cửa sổ Terminal (thường bằng cách nhấn Ctrl+Alt+t - tức là nhấn và giữ Ctrl và không nhả nó, nhấn và giữ Alt, sau đó không nhả một trong hai phím đó, gõ 't')
     - macOS: mở cửa sổ Terminal (bằng cách khởi chạy ứng dụng Terminal nằm trong /Ứng dụng/Tiện ích)
-    - 
+    -
 2. **SSH vào cluster**
+    Trước khi SSH, bạn cần sử dụng VPN để truy cập vào mạng của khoa, xem qua [hướng dẫn truy cập VPN](https://www.fit.hcmus.edu.vn/vn/Default.aspx?tabid=292&id=12985) để biết thêm thông tin chi tiết. 
     
     Cú pháp sử dụng ssh giống nhau trong tất cả các trường hợp trên. Hãy nhớ đảm bảo rằng bạn đang sử dụng VPN, sau đó trên dòng lệnh bạn đã truy cập ở bước trước, hãy nhập
     
@@ -58,7 +59,7 @@ Việc nhập mật khẩu mỗi khi bạn muốn kết nối với một máy h
 
 Nếu kết nối SSH của bạn đột ngột bị hỏng thì lệnh bạn đang chạy sẽ chấm dứt. Điều này xuất hiện rất thường xuyên, nơi các tác vụ được chạy trực tiếp từ dòng lệnh chứ không phải từ bộ lập lịch công việc.
 
-Một giải pháp cho vấn đề này là `tmux`. Nó được cài đặt trên tất cả các cluster của trường đại học và cho phép bạn bắt đầu một phiên shell, thay vì điều khiển từ xa thông qua SSH, nó tồn tại trên máy chủ.
+Một giải pháp cho vấn đề này là `tmux`. Nó được cài đặt trên tất cả các cluster của khoa và cho phép bạn bắt đầu một phiên shell, thay vì điều khiển từ xa thông qua SSH, nó tồn tại trên máy chủ.
 
 Một trường hợp sử dụng đơn giản sẽ là:
 
