@@ -17,7 +17,7 @@ Outline hướng dẫn này bao gồm các chủ đề sau:
     - [x] Mô tả kiến trúc cluster 
     - [x] Làm thế nào để có được một tài khoản 
     - [x] Cách kết nối với cluster (Phải đọc)
-    - [x] Thông tin server Khoa CNTT - ĐH KHTN
+    - [x] Thông tin server Trường ĐH.KHTN.
 1. Hướng dẫn sử dụng server 
     - [x] Kiến thức nền Linux 
     - [x] Giới thiệu về Slurm 
