@@ -8,9 +8,9 @@ Trước khi bắt đầu, bạn nên nắm một số kiến thức cơ bản v
 
 Trên tất cả các hệ thống, người dùng chạy chương trình bằng cách gửi script tới Slurm. Slurm script phải thực hiện ba việc:
 
-1. Quy định các yêu cầu về tài nguyên cho công việc
+1. Quy định các yêu cầu về tài nguyên cho job
 2. cài đặt môi trường
-3. Chỉ định công việc sẽ được thực hiện dưới dạng lệnh shell
+3. Chỉ định job sẽ được thực hiện dưới dạng lệnh shell
 
 Dưới đây là tập lệnh Slurm mẫu để chạy mã Python bằng môi trường Conda:
 
@@ -31,25 +31,25 @@ python myscript.py
 ```
 
 - Dòng đầu tiên của tập lệnh Slurm chỉ định shell Unix sẽ được sử dụng.
-- Tiếp theo là một loạt lệnh #SBATCH đặt ra các yêu cầu về tài nguyên và các tham số khác của công việc.
+- Tiếp theo là một loạt lệnh #SBATCH đặt ra các yêu cầu về tài nguyên và các tham số khác của job.
 - Tập lệnh trên yêu cầu 1 lõi CPU và 4 GB bộ nhớ trong thời gian chạy 1 phút. Những thay đổi cần thiết đối với môi trường được thực hiện bằng cách tải module môi trường anaconda3/ và kích hoạt một môi trường Conda cụ thể.
-- Cuối cùng, công việc cần thực hiện, tức là thực thi tập lệnh Python, được chỉ định ở dòng cuối cùng.
+- Cuối cùng, job cần thực hiện, tức là thực thi tập lệnh Python, được chỉ định ở dòng cuối cùng.
 
-Xem bên dưới để biết thông tin về sự tương ứng giữa các tác vụ và lõi CPU. Nếu công việc của bạn không hoàn thành trước thời hạn quy định thì nó sẽ bị hủy. Bạn nên sử dụng giá trị chính xác cho thời gian ước lượng nhưng thêm thêm 20% để đảm bảo an toàn.
+Xem bên dưới để biết thông tin về sự tương ứng giữa các tác vụ và lõi CPU. Nếu job của bạn không hoàn thành trước thời hạn quy định thì nó sẽ bị hủy. Bạn nên sử dụng giá trị chính xác cho thời gian ước lượng nhưng thêm thêm 20% để đảm bảo an toàn.
 
-Một tập lệnh công việc có tên `job.slurm` được gửi tới bộ lập lịch Slurm bằng lệnh `sbatch`:
+Một tập lệnh job có tên `job.slurm` được gửi tới bộ lập lịch Slurm bằng lệnh `sbatch`:
 
 ```
 $ sbatch job.slurm
 ```
 
-Công việc phải được gửi đến từ head node của một cluster. Job scheduler sẽ sắp xếp công việc ở nơi nó sẽ giữ nguyên cho đến khi nó có đủ mức độ ưu tiên để chạy trên compute node. Tùy thuộc vào tính chất công việc và nguồn lực sẵn có, thời gian xếp hàng sẽ thay đổi từ vài giây đến nhiều ngày. Để kiểm tra trạng thái của các công việc được xếp hàng đợi và đang chạy, hãy sử dụng lệnh sau:
+Job phải được gửi đến từ head node của một cluster. Job scheduler sẽ sắp xếp job ở nơi nó sẽ giữ nguyên cho đến khi nó có đủ mức độ ưu tiên để chạy trên compute node. Tùy thuộc vào tính chất job và nguồn lực sẵn có, thời gian xếp hàng sẽ thay đổi từ vài giây đến nhiều ngày. Để kiểm tra trạng thái của các job được xếp hàng đợi và đang chạy, hãy sử dụng lệnh sau:
 
 ```
 $ squeue -u <username>
 ```
 
-Để xem thời gian bắt đầu dự kiến của các công việc của bạn:
+Để xem thời gian bắt đầu dự kiến của các job của bạn:
 
 ```
 $ squeue -u <username> --start
@@ -68,61 +68,61 @@ $ squeue -u <username> --start
 | shownodes | thông tin về các nút tính toán (dễ đọc hơn) |
 | sinfo | xem tất cả các nút của cụm đang được sử dụng như thế nào (ví dụ: chúng có ở trạng thái rảnh không? ngừng hoạt động? đang được sử dụng?) |
 | sininfo -p gpu | xem GPU đang được sử dụng như thế nào |
-| qos | "quality of service" - xem cách phân chia công việc và giới hạn trên mỗi phân vùng |
+| qos | "quality of service" - xem cách phân chia job và giới hạn trên mỗi phân vùng |
 | top | hiển thị hoạt động của bộ xử lý, các lệnh đang chạy (nhấn 'q' để thoát) |
 | htop | hiển thị hoạt động của bộ xử lý, các lệnh đang chạy, có màu sắc (nhấn 'q' để thoát) |
 | sshare | hiển thị các chia sẻ cụm được chỉ định bởi nhóm |
-| sprio -w | xem mức độ ưu tiên công việc được chỉ định như thế nào (hiển thị trọng số cho từng yếu tố) |
+| sprio -w | xem mức độ ưu tiên job được chỉ định như thế nào (hiển thị trọng số cho từng yếu tố) |
 
 ### **Gửi một Job**
 
 | Lệnh | Mô tả |
 | --- | --- |
-| sbatch | gửi công việc của bạn tới người lên lịch |
-| chào | yêu cầu một công việc tương tác trên (các) nút điện toán (xem bên dưới) |
+| sbatch | gửi job của bạn tới job scheduler |
+| salloc | yêu cầu một interactive job trên computing node (xem bên dưới) |
 
 ### **Sau khi Job được submit**
 
 | Yêu cầu | Sự miêu tả |
 | --- | --- |
-| squeue | hiển thị tất cả các công việc đang chạy hoặc chờ chạy |
-| squeue -u <username> | xem công việc của bạn đang chạy hoặc đang chờ chạy |
-| squeue --start | báo cáo thời gian bắt đầu dự kiến ​​cho các công việc đang chờ xử lý |
-| squeue -j <jobid> | hiển thị các nút đang được sử dụng cho công việc đang chạy của bạn |
-| scontrol show jobid <jobid> | hiển thị thông tin chi tiết về công việc |
-| sprio | hiển thị mức độ ưu tiên được giao cho các công việc đang chờ xử lý |
-| slurmtop | hiển thị công việc hiện tại |
-| scancel | hủy công việc (ví dụ: scancel 2534640) |
+| squeue | hiển thị tất cả các job đang chạy hoặc chờ chạy |
+| squeue -u <username> | xem job của bạn đang chạy hoặc đang chờ chạy |
+| squeue --start | báo cáo thời gian bắt đầu dự kiến ​​cho các job đang chờ xử lý |
+| squeue -j <jobid> | hiển thị các nút đang được sử dụng cho job đang chạy của bạn |
+| scontrol show jobid <jobid> | hiển thị thông tin chi tiết về job |
+| sprio | hiển thị mức độ ưu tiên được giao cho các job đang chờ xử lý |
+| slurmtop | hiển thị job hiện tại |
+| scancel | hủy job (ví dụ: scancel 2534640) |
 
 ### **Sau khi job hoàn thành**
 
 | Lệnh | Mô tả |
 | --- | --- |
-| seff <jobid> | xem kết quả công việc đã hoàn thành |
-| shistory | hiển thị lịch sử công việc của bạn |
-| jobstats <jobid> | xem số liệu chính xác về bộ nhớ, CPU và GPU từ các công việc. Xem thêm về số liệu thống kê công việc. |
+| seff <jobid> | xem kết quả job đã hoàn thành |
+| shistory | hiển thị lịch sử job của bạn |
+| jobstats <jobid> | xem số liệu chính xác về bộ nhớ, CPU và GPU từ các job. Xem thêm về số liệu thống kê job. |
 
 ## **Your First Slurm Job**
 
-Nếu bạn chưa quen với cụm HPC hoặc Slurm thì hãy xem hướng dẫn này để chạy công việc đầu tiên của bạn. 
+Nếu bạn chưa quen với cụm HPC hoặc Slurm thì hãy xem hướng dẫn này để chạy job đầu tiên của bạn. 
 
 ## **Terminology**
 
-Khi bạn SSH đến một cụm, bạn đang kết nối với head node, node này được tất cả người dùng chia sẻ. Việc chạy công việc trên nút đăng nhập bị **CẤM**. Các công việc hàng loạt và tương tác phải được gửi từ head node đến bộ lập lịch công việc của Slurm bằng cách sử dụng lệnh “srun”, "sbatch" và "salloc". Sau khi xếp hàng đợi, các công việc sẽ được gửi đến các compute node thực hiện công việc tính toán thực tế.
+Khi bạn SSH đến một cụm, bạn đang kết nối với head node, node này được tất cả người dùng chia sẻ. Việc chạy job trên nút đăng nhập bị **CẤM**. Các job hàng loạt và tương tác phải được gửi từ head node đến bộ lập lịch job của Slurm bằng cách sử dụng lệnh “srun”, "sbatch" và "salloc". Sau khi xếp hàng đợi, các job sẽ được gửi đến các compute node thực hiện job tính toán thực tế.
 
-Mỗi CPU có nhiều lõi CPU. Chạy lệnh "snodes" và xem cột "CPUS" ở đầu ra để xem số lượng lõi CPU trên mỗi nút cho một cụm nhất định. Bạn sẽ thấy các giá trị như 28, 32, 40, 96 và 128. Nếu công việc của bạn yêu cầu số lượng lõi CPU trên mỗi nút trở xuống thì hầu như bạn luôn nên sử dụng --nodes=1 trong tập lệnh Slurm của mình. Các giá trị cho --ntasks và --cpus-per-task được giải thích rõ nhất bằng các ví dụ bên dưới. 
+Mỗi CPU có nhiều lõi CPU. Chạy lệnh "snodes" và xem cột "CPUS" ở đầu ra để xem số lượng lõi CPU trên mỗi nút cho một cụm nhất định. Bạn sẽ thấy các giá trị như 28, 32, 40, 96 và 128. Nếu job của bạn yêu cầu số lượng lõi CPU trên mỗi nút trở xuống thì hầu như bạn luôn nên sử dụng --nodes=1 trong tập lệnh Slurm của mình. Các giá trị cho --ntasks và --cpus-per-task được giải thích rõ nhất bằng các ví dụ bên dưới. 
 
-Lệnh --time đặt thời gian chạy tối đa cần thiết cho công việc của bạn. Bạn nên đặt giá trị này một cách chính xác nhưng hãy tính thêm 20% vì công việc sẽ bị hủy nếu nó không hoàn thành trước khi đạt đến giới hạn. Để đặt yêu cầu bộ nhớ của công việc bằng cách sử dụng --mem-per-cpu hoặc --mem.
+Lệnh --time đặt thời gian chạy tối đa cần thiết cho job của bạn. Bạn nên đặt giá trị này một cách chính xác nhưng hãy tính thêm 20% vì job sẽ bị hủy nếu nó không hoàn thành trước khi đạt đến giới hạn. Để đặt yêu cầu bộ nhớ của job bằng cách sử dụng --mem-per-cpu hoặc --mem.
 
 ## **Interactive Allocations with salloc**
 
-Nút đăng nhập của cụm chỉ có thể được sử dụng cho công việc tương tác rất nhẹ sử dụng tối đa 10% máy (lõi CPU và bộ nhớ) trong tối đa 10 phút. Điều này được thực thi nghiêm ngặt vì việc vi phạm quy tắc này thường có thể ảnh hưởng xấu đến công việc của những người dùng khác. Công việc tương tác chuyên sâu phải được thực hiện trên các nút điện toán bằng lệnh salloc. Để hoạt động tương tác trên nút điện toán có 1 lõi CPU và 4 GB bộ nhớ trong 20 phút, hãy sử dụng lệnh sau:
+Nút đăng nhập của cụm chỉ có thể được sử dụng cho job tương tác rất nhẹ sử dụng tối đa 10% máy (lõi CPU và bộ nhớ) trong tối đa 10 phút. Điều này được thực thi nghiêm ngặt vì việc vi phạm quy tắc này thường có thể ảnh hưởng xấu đến job của những người dùng khác. Job tương tác chuyên sâu phải được thực hiện trên các nút điện toán bằng lệnh salloc. Để hoạt động tương tác trên nút điện toán có 1 lõi CPU và 4 GB bộ nhớ trong 20 phút, hãy sử dụng lệnh sau:
 
 ```
 $ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:20:00
 ```
 
-Giống như các công việc hàng loạt, việc phân bổ tương tác sẽ đi qua hệ thống xếp hàng. Điều này có nghĩa là khi clusterr bận, bạn sẽ phải đợi trước khi được cấp phân bổ. Bạn sẽ thấy đầu ra như sau:
+Giống như các job hàng loạt, việc phân bổ tương tác sẽ đi qua hệ thống xếp hàng. Điều này có nghĩa là khi clusterr bận, bạn sẽ phải đợi trước khi được cấp phân bổ. Bạn sẽ thấy đầu ra như sau:
 
 ```
 salloc: Pending job allocation 32280311
@@ -154,7 +154,7 @@ $ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:20:00 --x11
 
 ## **GPU Job**
 
-Xem số lượng GPU trên mỗi cluster tại trang thông tin cluster đó. Để sử dụng GPU trong công việc, hãy thêm câu lệnh SBATCH với tùy chọn --gres:
+Xem số lượng GPU trên mỗi cluster tại trang thông tin cluster đó. Để sử dụng GPU trong job, hãy thêm câu lệnh SBATCH với tùy chọn --gres:
 
 ```
 #!/bin/bash
@@ -179,15 +179,15 @@ Ví dụ: để sử dụng bốn GPU trên mỗi nút, dòng thích hợp sẽ 
 #SBATCH --gres=gpu:4
 ```
 
-QUAN TRỌNG: Chỉ những mã được viết rõ ràng để chạy trên GPU mới có thể tận dụng GPU. Việc thêm tùy chọn --gres vào tập lệnh Slurm cho mã chỉ dành cho CPU sẽ không tăng tốc thời gian thực thi nhưng sẽ lãng phí tài nguyên, tăng thời gian xếp hàng và giảm mức độ ưu tiên của lần gửi công việc tiếp theo. Hơn nữa, một số mã chỉ được viết để sử dụng một GPU duy nhất nên tránh yêu cầu nhiều GPU trừ khi mã của bạn có thể sử dụng chúng. Nếu mã có thể sử dụng nhiều GPU thì bạn nên tiến hành phân tích tỷ lệ để tìm ra số lượng GPU tối ưu để sử dụng.
+QUAN TRỌNG: Chỉ những mã được viết rõ ràng để chạy trên GPU mới có thể tận dụng GPU. Việc thêm tùy chọn --gres vào tập lệnh Slurm cho mã chỉ dành cho CPU sẽ không tăng tốc thời gian thực thi nhưng sẽ lãng phí tài nguyên, tăng thời gian xếp hàng và giảm mức độ ưu tiên của lần gửi job tiếp theo. Hơn nữa, một số mã chỉ được viết để sử dụng một GPU duy nhất nên tránh yêu cầu nhiều GPU trừ khi mã của bạn có thể sử dụng chúng. Nếu mã có thể sử dụng nhiều GPU thì bạn nên tiến hành phân tích tỷ lệ để tìm ra số lượng GPU tối ưu để sử dụng.
 
 Xem [thông tin hệ thống](../introduce-to-cluster/) để biết về cấu hình của server. Lưu ý rằng một số mã yêu cầu sử dụng nhiều lõi CPU cùng với GPU để có hiệu suất tối ưu.
 
 ## **Job Arrays**
 
-Mảng công việc được dùng để chạy cùng một công việc nhiều lần mà chỉ có những khác biệt nhỏ giữa các công việc. Ví dụ: giả sử bạn cần chạy 100 công việc, mỗi công việc có một giá trị hạt giống khác nhau cho trình tạo số ngẫu nhiên. Hoặc có thể bạn muốn chạy cùng một tập lệnh phân tích dữ liệu cho từng file trong tổng số 50 files. Job array là lựa chọn tốt nhất cho những trường hợp như vậy.
+Mảng job được dùng để chạy cùng một job nhiều lần mà chỉ có những khác biệt nhỏ giữa các job. Ví dụ: giả sử bạn cần chạy 100 job, mỗi job có một giá trị hạt giống khác nhau cho trình tạo số ngẫu nhiên. Hoặc có thể bạn muốn chạy cùng một tập lệnh phân tích dữ liệu cho từng file trong tổng số 50 files. Job array là lựa chọn tốt nhất cho những trường hợp như vậy.
 
-Dưới đây là một ví dụ về tập lệnh Slurm để chạy Python trong đó có 5 công việc:
+Dưới đây là một ví dụ về tập lệnh Slurm để chạy Python trong đó có 5 job:
 
 ```
 #!/bin/bash
@@ -218,7 +218,7 @@ Dòng chính trong tập lệnh Slurm ở trên là:
 #SBATCH --array=0-4
 ```
 
-Trong ví dụ này, tập lệnh Slurm sẽ chạy năm công việc. Mỗi công việc sẽ có giá trị SLURM_ARRAY_TASK_ID khác nhau (tức là 0, 1, 2, 3, 4). Giá trị của SLURM_ARRAY_TASK_ID có thể được sử dụng để phân biệt các công việc trong mảng. Xem ví dụ đầy đủ về Python. Người ta có thể chuyển SLURM_ARRAY_TASK_ID cho tệp thực thi dưới dạng tham số dòng lệnh hoặc tham chiếu nó dưới dạng biến môi trường. Sử dụng cách tiếp cận thứ hai, một vài dòng đầu tiên của tập lệnh Python (được gọi là myscript.py ở trên) có thể trông như thế này:
+Trong ví dụ này, tập lệnh Slurm sẽ chạy năm job. Mỗi job sẽ có giá trị SLURM_ARRAY_TASK_ID khác nhau (tức là 0, 1, 2, 3, 4). Giá trị của SLURM_ARRAY_TASK_ID có thể được sử dụng để phân biệt các job trong mảng. Xem ví dụ đầy đủ về Python. Người ta có thể chuyển SLURM_ARRAY_TASK_ID cho tệp thực thi dưới dạng tham số dòng lệnh hoặc tham chiếu nó dưới dạng biến môi trường. Sử dụng cách tiếp cận thứ hai, một vài dòng đầu tiên của tập lệnh Python (được gọi là myscript.py ở trên) có thể trông như thế này:
 
 ```
 import os
@@ -228,9 +228,9 @@ myparam = parameters[idx]
 # execute the rest of the script using myparam
 ```
 
-## Các công việc sử dụng bộ nhớ lớn
+## Các job sử dụng bộ nhớ lớn
 
-Một lợi thế của việc sử dụng cụm HPC trên máy tính xách tay hoặc máy trạm của bạn là lượng RAM lớn có sẵn trên mỗi nút. Ví dụ: trên một số cụm, bạn có thể chạy một công việc với bộ nhớ 100 GB. Điều này có thể rất hữu ích khi làm việc với một tập dữ liệu lớn. Để tìm hiểu xem mỗi nút có bao nhiêu bộ nhớ, hãy chạy lệnh snodes và xem cột MEMORY tính bằng megabyte.
+Một lợi thế của việc sử dụng cụm HPC trên máy tính xách tay hoặc máy trạm của bạn là lượng RAM lớn có sẵn trên mỗi nút. Ví dụ: trên một số cụm, bạn có thể chạy một job với bộ nhớ 100 GB. Điều này có thể rất hữu ích khi làm việc với một tập dữ liệu lớn. Để tìm hiểu xem mỗi nút có bao nhiêu bộ nhớ, hãy chạy lệnh snodes và xem cột MEMORY tính bằng megabyte.
 
 ```
 #!/bin/bash
@@ -252,7 +252,7 @@ Ví dụ trên chạy tập lệnh Python sử dụng 1 lõi CPU và 100 GB bộ
 
 ## **Báo cáo (hiện tại chưa hỗ trợ)**
 
-Nếu bạn đưa chỉ thị thư SBATCH bên dưới vào tập lệnh Slurm thì bạn sẽ nhận được email sau khi mỗi công việc kết thúc:
+Nếu bạn đưa chỉ thị thư SBATCH bên dưới vào tập lệnh Slurm thì bạn sẽ nhận được email sau khi mỗi job kết thúc:
 
 ```
 #SBATCH --mail-type=end
@@ -304,9 +304,9 @@ Dưới đây là một báo cáo mẫu:
 ================================================================================
 ```
 
-Báo cáo cung cấp thông tin về thời gian chạy, mức sử dụng CPU, mức sử dụng bộ nhớ, v.v. Bạn nên kiểm tra các giá trị này để xác định xem bạn có đang sử dụng tài nguyên đúng cách hay không. Xem trang Thống kê công việc để biết thêm thông tin.
+Báo cáo cung cấp thông tin về thời gian chạy, mức sử dụng CPU, mức sử dụng bộ nhớ, v.v. Bạn nên kiểm tra các giá trị này để xác định xem bạn có đang sử dụng tài nguyên đúng cách hay không. Xem trang Thống kê job để biết thêm thông tin.
 
-Thời gian xếp hàng của bạn một phần được xác định bởi lượng tài nguyên bạn yêu cầu. Giá trị chia sẻ công bằng của bạn, một phần quyết định mức độ ưu tiên của công việc tiếp theo của bạn, sẽ giảm tỷ lệ với lượng tài nguyên bạn đã sử dụng trong 30 ngày trước đó.
+Thời gian xếp hàng của bạn một phần được xác định bởi lượng tài nguyên bạn yêu cầu. Giá trị chia sẻ công bằng của bạn, một phần quyết định mức độ ưu tiên của job tiếp theo của bạn, sẽ giảm tỷ lệ với lượng tài nguyên bạn đã sử dụng trong 30 ngày trước đó.
 
 ## **Tài liệu đọc thêm**
 
