@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.757147079481">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.757669959927">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -31,11 +31,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../static/logo.webp" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.757147079481" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.757669959927" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.757147079481" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.757669959927" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.757147079481" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.757669959927" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -198,9 +198,9 @@
 </doc-anchor-target>
 <p>Trên tất cả các hệ thống, người dùng chạy chương trình bằng cách gửi script tới Slurm. Slurm script phải thực hiện ba việc:</p>
 <ol>
-<li>Quy định các yêu cầu về tài nguyên cho công việc</li>
+<li>Quy định các yêu cầu về tài nguyên cho job</li>
 <li>cài đặt môi trường</li>
-<li>Chỉ định công việc sẽ được thực hiện dưới dạng lệnh shell</li>
+<li>Chỉ định job sẽ được thực hiện dưới dạng lệnh shell</li>
 </ol>
 <p>Dưới đây là tập lệnh Slurm mẫu để chạy mã Python bằng môi trường Conda:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -220,20 +220,20 @@ python myscript.py</code></pre>
 </doc-codeblock></div>
 <ul>
 <li>Dòng đầu tiên của tập lệnh Slurm chỉ định shell Unix sẽ được sử dụng.</li>
-<li>Tiếp theo là một loạt lệnh #SBATCH đặt ra các yêu cầu về tài nguyên và các tham số khác của công việc.</li>
+<li>Tiếp theo là một loạt lệnh #SBATCH đặt ra các yêu cầu về tài nguyên và các tham số khác của job.</li>
 <li>Tập lệnh trên yêu cầu 1 lõi CPU và 4 GB bộ nhớ trong thời gian chạy 1 phút. Những thay đổi cần thiết đối với môi trường được thực hiện bằng cách tải module môi trường anaconda3/ và kích hoạt một môi trường Conda cụ thể.</li>
-<li>Cuối cùng, công việc cần thực hiện, tức là thực thi tập lệnh Python, được chỉ định ở dòng cuối cùng.</li>
+<li>Cuối cùng, job cần thực hiện, tức là thực thi tập lệnh Python, được chỉ định ở dòng cuối cùng.</li>
 </ul>
-<p>Xem bên dưới để biết thông tin về sự tương ứng giữa các tác vụ và lõi CPU. Nếu công việc của bạn không hoàn thành trước thời hạn quy định thì nó sẽ bị hủy. Bạn nên sử dụng giá trị chính xác cho thời gian ước lượng nhưng thêm thêm 20% để đảm bảo an toàn.</p>
-<p>Một tập lệnh công việc có tên <code v-pre>job.slurm</code> được gửi tới bộ lập lịch Slurm bằng lệnh <code v-pre>sbatch</code>:</p>
+<p>Xem bên dưới để biết thông tin về sự tương ứng giữa các tác vụ và lõi CPU. Nếu job của bạn không hoàn thành trước thời hạn quy định thì nó sẽ bị hủy. Bạn nên sử dụng giá trị chính xác cho thời gian ước lượng nhưng thêm thêm 20% để đảm bảo an toàn.</p>
+<p>Một tập lệnh job có tên <code v-pre>job.slurm</code> được gửi tới bộ lập lịch Slurm bằng lệnh <code v-pre>sbatch</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">$ sbatch job.slurm</code></pre>
 </doc-codeblock></div>
-<p>Công việc phải được gửi đến từ head node của một cluster. Job scheduler sẽ sắp xếp công việc ở nơi nó sẽ giữ nguyên cho đến khi nó có đủ mức độ ưu tiên để chạy trên compute node. Tùy thuộc vào tính chất công việc và nguồn lực sẵn có, thời gian xếp hàng sẽ thay đổi từ vài giây đến nhiều ngày. Để kiểm tra trạng thái của các công việc được xếp hàng đợi và đang chạy, hãy sử dụng lệnh sau:</p>
+<p>Job phải được gửi đến từ head node của một cluster. Job scheduler sẽ sắp xếp job ở nơi nó sẽ giữ nguyên cho đến khi nó có đủ mức độ ưu tiên để chạy trên compute node. Tùy thuộc vào tính chất job và nguồn lực sẵn có, thời gian xếp hàng sẽ thay đổi từ vài giây đến nhiều ngày. Để kiểm tra trạng thái của các job được xếp hàng đợi và đang chạy, hãy sử dụng lệnh sau:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">$ squeue -u &lt;username&gt;</code></pre>
 </doc-codeblock></div>
-<p>Để xem thời gian bắt đầu dự kiến của các công việc của bạn:</p>
+<p>Để xem thời gian bắt đầu dự kiến của các job của bạn:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">$ squeue -u &lt;username&gt; --start</code></pre>
 </doc-codeblock></div>
@@ -288,7 +288,7 @@ python myscript.py</code></pre>
 </tr>
 <tr>
 <td>qos</td>
-<td>&quot;quality of service&quot; - xem cách phân chia công việc và giới hạn trên mỗi phân vùng</td>
+<td>&quot;quality of service&quot; - xem cách phân chia job và giới hạn trên mỗi phân vùng</td>
 </tr>
 <tr>
 <td>top</td>
@@ -304,7 +304,7 @@ python myscript.py</code></pre>
 </tr>
 <tr>
 <td>sprio -w</td>
-<td>xem mức độ ưu tiên công việc được chỉ định như thế nào (hiển thị trọng số cho từng yếu tố)</td>
+<td>xem mức độ ưu tiên job được chỉ định như thế nào (hiển thị trọng số cho từng yếu tố)</td>
 </tr>
 </tbody>
 </table>
@@ -326,11 +326,11 @@ python myscript.py</code></pre>
 <tbody>
 <tr>
 <td>sbatch</td>
-<td>gửi công việc của bạn tới người lên lịch</td>
+<td>gửi job của bạn tới job scheduler</td>
 </tr>
 <tr>
-<td>chào</td>
-<td>yêu cầu một công việc tương tác trên (các) nút điện toán (xem bên dưới)</td>
+<td>salloc</td>
+<td>yêu cầu một interactive job trên computing node (xem bên dưới)</td>
 </tr>
 </tbody>
 </table>
@@ -352,35 +352,35 @@ python myscript.py</code></pre>
 <tbody>
 <tr>
 <td>squeue</td>
-<td>hiển thị tất cả các công việc đang chạy hoặc chờ chạy</td>
+<td>hiển thị tất cả các job đang chạy hoặc chờ chạy</td>
 </tr>
 <tr>
 <td>squeue -u <username></td>
-<td>xem công việc của bạn đang chạy hoặc đang chờ chạy</td>
+<td>xem job của bạn đang chạy hoặc đang chờ chạy</td>
 </tr>
 <tr>
 <td>squeue --start</td>
-<td>báo cáo thời gian bắt đầu dự kiến ​​cho các công việc đang chờ xử lý</td>
+<td>báo cáo thời gian bắt đầu dự kiến ​​cho các job đang chờ xử lý</td>
 </tr>
 <tr>
 <td>squeue -j <jobid></td>
-<td>hiển thị các nút đang được sử dụng cho công việc đang chạy của bạn</td>
+<td>hiển thị các nút đang được sử dụng cho job đang chạy của bạn</td>
 </tr>
 <tr>
 <td>scontrol show jobid <jobid></td>
-<td>hiển thị thông tin chi tiết về công việc</td>
+<td>hiển thị thông tin chi tiết về job</td>
 </tr>
 <tr>
 <td>sprio</td>
-<td>hiển thị mức độ ưu tiên được giao cho các công việc đang chờ xử lý</td>
+<td>hiển thị mức độ ưu tiên được giao cho các job đang chờ xử lý</td>
 </tr>
 <tr>
 <td>slurmtop</td>
-<td>hiển thị công việc hiện tại</td>
+<td>hiển thị job hiện tại</td>
 </tr>
 <tr>
 <td>scancel</td>
-<td>hủy công việc (ví dụ: scancel 2534640)</td>
+<td>hủy job (ví dụ: scancel 2534640)</td>
 </tr>
 </tbody>
 </table>
@@ -402,15 +402,15 @@ python myscript.py</code></pre>
 <tbody>
 <tr>
 <td>seff <jobid></td>
-<td>xem kết quả công việc đã hoàn thành</td>
+<td>xem kết quả job đã hoàn thành</td>
 </tr>
 <tr>
 <td>shistory</td>
-<td>hiển thị lịch sử công việc của bạn</td>
+<td>hiển thị lịch sử job của bạn</td>
 </tr>
 <tr>
 <td>jobstats <jobid></td>
-<td>xem số liệu chính xác về bộ nhớ, CPU và GPU từ các công việc. Xem thêm về số liệu thống kê công việc.</td>
+<td>xem số liệu chính xác về bộ nhớ, CPU và GPU từ các job. Xem thêm về số liệu thống kê job.</td>
 </tr>
 </tbody>
 </table>
@@ -421,27 +421,27 @@ python myscript.py</code></pre>
         <span><strong>Your First Slurm Job</strong></span>
     </h2>
 </doc-anchor-target>
-<p>Nếu bạn chưa quen với cụm HPC hoặc Slurm thì hãy xem hướng dẫn này để chạy công việc đầu tiên của bạn.</p>
+<p>Nếu bạn chưa quen với cụm HPC hoặc Slurm thì hãy xem hướng dẫn này để chạy job đầu tiên của bạn.</p>
 <doc-anchor-target id="terminology">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#terminology">#</doc-anchor-trigger>
         <span><strong>Terminology</strong></span>
     </h2>
 </doc-anchor-target>
-<p>Khi bạn SSH đến một cụm, bạn đang kết nối với head node, node này được tất cả người dùng chia sẻ. Việc chạy công việc trên nút đăng nhập bị <strong>CẤM</strong>. Các công việc hàng loạt và tương tác phải được gửi từ head node đến bộ lập lịch công việc của Slurm bằng cách sử dụng lệnh “srun”, &quot;sbatch&quot; và &quot;salloc&quot;. Sau khi xếp hàng đợi, các công việc sẽ được gửi đến các compute node thực hiện công việc tính toán thực tế.</p>
-<p>Mỗi CPU có nhiều lõi CPU. Chạy lệnh &quot;snodes&quot; và xem cột &quot;CPUS&quot; ở đầu ra để xem số lượng lõi CPU trên mỗi nút cho một cụm nhất định. Bạn sẽ thấy các giá trị như 28, 32, 40, 96 và 128. Nếu công việc của bạn yêu cầu số lượng lõi CPU trên mỗi nút trở xuống thì hầu như bạn luôn nên sử dụng --nodes=1 trong tập lệnh Slurm của mình. Các giá trị cho --ntasks và --cpus-per-task được giải thích rõ nhất bằng các ví dụ bên dưới.</p>
-<p>Lệnh --time đặt thời gian chạy tối đa cần thiết cho công việc của bạn. Bạn nên đặt giá trị này một cách chính xác nhưng hãy tính thêm 20% vì công việc sẽ bị hủy nếu nó không hoàn thành trước khi đạt đến giới hạn. Để đặt yêu cầu bộ nhớ của công việc bằng cách sử dụng --mem-per-cpu hoặc --mem.</p>
+<p>Khi bạn SSH đến một cụm, bạn đang kết nối với head node, node này được tất cả người dùng chia sẻ. Việc chạy job trên nút đăng nhập bị <strong>CẤM</strong>. Các job hàng loạt và tương tác phải được gửi từ head node đến bộ lập lịch job của Slurm bằng cách sử dụng lệnh “srun”, &quot;sbatch&quot; và &quot;salloc&quot;. Sau khi xếp hàng đợi, các job sẽ được gửi đến các compute node thực hiện job tính toán thực tế.</p>
+<p>Mỗi CPU có nhiều lõi CPU. Chạy lệnh &quot;snodes&quot; và xem cột &quot;CPUS&quot; ở đầu ra để xem số lượng lõi CPU trên mỗi nút cho một cụm nhất định. Bạn sẽ thấy các giá trị như 28, 32, 40, 96 và 128. Nếu job của bạn yêu cầu số lượng lõi CPU trên mỗi nút trở xuống thì hầu như bạn luôn nên sử dụng --nodes=1 trong tập lệnh Slurm của mình. Các giá trị cho --ntasks và --cpus-per-task được giải thích rõ nhất bằng các ví dụ bên dưới.</p>
+<p>Lệnh --time đặt thời gian chạy tối đa cần thiết cho job của bạn. Bạn nên đặt giá trị này một cách chính xác nhưng hãy tính thêm 20% vì job sẽ bị hủy nếu nó không hoàn thành trước khi đạt đến giới hạn. Để đặt yêu cầu bộ nhớ của job bằng cách sử dụng --mem-per-cpu hoặc --mem.</p>
 <doc-anchor-target id="interactive-allocations-with-salloc">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#interactive-allocations-with-salloc">#</doc-anchor-trigger>
         <span><strong>Interactive Allocations with salloc</strong></span>
     </h2>
 </doc-anchor-target>
-<p>Nút đăng nhập của cụm chỉ có thể được sử dụng cho công việc tương tác rất nhẹ sử dụng tối đa 10% máy (lõi CPU và bộ nhớ) trong tối đa 10 phút. Điều này được thực thi nghiêm ngặt vì việc vi phạm quy tắc này thường có thể ảnh hưởng xấu đến công việc của những người dùng khác. Công việc tương tác chuyên sâu phải được thực hiện trên các nút điện toán bằng lệnh salloc. Để hoạt động tương tác trên nút điện toán có 1 lõi CPU và 4 GB bộ nhớ trong 20 phút, hãy sử dụng lệnh sau:</p>
+<p>Nút đăng nhập của cụm chỉ có thể được sử dụng cho job tương tác rất nhẹ sử dụng tối đa 10% máy (lõi CPU và bộ nhớ) trong tối đa 10 phút. Điều này được thực thi nghiêm ngặt vì việc vi phạm quy tắc này thường có thể ảnh hưởng xấu đến job của những người dùng khác. Job tương tác chuyên sâu phải được thực hiện trên các nút điện toán bằng lệnh salloc. Để hoạt động tương tác trên nút điện toán có 1 lõi CPU và 4 GB bộ nhớ trong 20 phút, hãy sử dụng lệnh sau:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:20:00</code></pre>
 </doc-codeblock></div>
-<p>Giống như các công việc hàng loạt, việc phân bổ tương tác sẽ đi qua hệ thống xếp hàng. Điều này có nghĩa là khi clusterr bận, bạn sẽ phải đợi trước khi được cấp phân bổ. Bạn sẽ thấy đầu ra như sau:</p>
+<p>Giống như các job hàng loạt, việc phân bổ tương tác sẽ đi qua hệ thống xếp hàng. Điều này có nghĩa là khi clusterr bận, bạn sẽ phải đợi trước khi được cấp phân bổ. Bạn sẽ thấy đầu ra như sau:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">salloc: Pending job allocation 32280311
 salloc: job 32280311 queued and waiting for resources
@@ -468,7 +468,7 @@ salloc: Nodes della-r4c1n13 are ready for job
         <span><strong>GPU Job</strong></span>
     </h2>
 </doc-anchor-target>
-<p>Xem số lượng GPU trên mỗi cluster tại trang thông tin cluster đó. Để sử dụng GPU trong công việc, hãy thêm câu lệnh SBATCH với tùy chọn --gres:</p>
+<p>Xem số lượng GPU trên mỗi cluster tại trang thông tin cluster đó. Để sử dụng GPU trong job, hãy thêm câu lệnh SBATCH với tùy chọn --gres:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">#!/bin/bash
 #SBATCH --job-name=mnist         # create a short name for your job
@@ -489,7 +489,7 @@ python myscript.py</code></pre>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">#SBATCH --gres=gpu:4</code></pre>
 </doc-codeblock></div>
-<p>QUAN TRỌNG: Chỉ những mã được viết rõ ràng để chạy trên GPU mới có thể tận dụng GPU. Việc thêm tùy chọn --gres vào tập lệnh Slurm cho mã chỉ dành cho CPU sẽ không tăng tốc thời gian thực thi nhưng sẽ lãng phí tài nguyên, tăng thời gian xếp hàng và giảm mức độ ưu tiên của lần gửi công việc tiếp theo. Hơn nữa, một số mã chỉ được viết để sử dụng một GPU duy nhất nên tránh yêu cầu nhiều GPU trừ khi mã của bạn có thể sử dụng chúng. Nếu mã có thể sử dụng nhiều GPU thì bạn nên tiến hành phân tích tỷ lệ để tìm ra số lượng GPU tối ưu để sử dụng.</p>
+<p>QUAN TRỌNG: Chỉ những mã được viết rõ ràng để chạy trên GPU mới có thể tận dụng GPU. Việc thêm tùy chọn --gres vào tập lệnh Slurm cho mã chỉ dành cho CPU sẽ không tăng tốc thời gian thực thi nhưng sẽ lãng phí tài nguyên, tăng thời gian xếp hàng và giảm mức độ ưu tiên của lần gửi job tiếp theo. Hơn nữa, một số mã chỉ được viết để sử dụng một GPU duy nhất nên tránh yêu cầu nhiều GPU trừ khi mã của bạn có thể sử dụng chúng. Nếu mã có thể sử dụng nhiều GPU thì bạn nên tiến hành phân tích tỷ lệ để tìm ra số lượng GPU tối ưu để sử dụng.</p>
 <p>Xem <a href="../introduce-to-cluster/">thông tin hệ thống</a> để biết về cấu hình của server. Lưu ý rằng một số mã yêu cầu sử dụng nhiều lõi CPU cùng với GPU để có hiệu suất tối ưu.</p>
 <doc-anchor-target id="jobarrays">
     <h2>
@@ -497,8 +497,8 @@ python myscript.py</code></pre>
         <span><strong>Job Arrays</strong></span>
     </h2>
 </doc-anchor-target>
-<p>Mảng công việc được dùng để chạy cùng một công việc nhiều lần mà chỉ có những khác biệt nhỏ giữa các công việc. Ví dụ: giả sử bạn cần chạy 100 công việc, mỗi công việc có một giá trị hạt giống khác nhau cho trình tạo số ngẫu nhiên. Hoặc có thể bạn muốn chạy cùng một tập lệnh phân tích dữ liệu cho từng file trong tổng số 50 files. Job array là lựa chọn tốt nhất cho những trường hợp như vậy.</p>
-<p>Dưới đây là một ví dụ về tập lệnh Slurm để chạy Python trong đó có 5 công việc:</p>
+<p>Mảng job được dùng để chạy cùng một job nhiều lần mà chỉ có những khác biệt nhỏ giữa các job. Ví dụ: giả sử bạn cần chạy 100 job, mỗi job có một giá trị hạt giống khác nhau cho trình tạo số ngẫu nhiên. Hoặc có thể bạn muốn chạy cùng một tập lệnh phân tích dữ liệu cho từng file trong tổng số 50 files. Job array là lựa chọn tốt nhất cho những trường hợp như vậy.</p>
+<p>Dưới đây là một ví dụ về tập lệnh Slurm để chạy Python trong đó có 5 job:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">#!/bin/bash
 #SBATCH --job-name=array-job     # create a short name for your job
@@ -525,7 +525,7 @@ python myscript.py</code></pre>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">#SBATCH --array=0-4</code></pre>
 </doc-codeblock></div>
-<p>Trong ví dụ này, tập lệnh Slurm sẽ chạy năm công việc. Mỗi công việc sẽ có giá trị SLURM_ARRAY_TASK_ID khác nhau (tức là 0, 1, 2, 3, 4). Giá trị của SLURM_ARRAY_TASK_ID có thể được sử dụng để phân biệt các công việc trong mảng. Xem ví dụ đầy đủ về Python. Người ta có thể chuyển SLURM_ARRAY_TASK_ID cho tệp thực thi dưới dạng tham số dòng lệnh hoặc tham chiếu nó dưới dạng biến môi trường. Sử dụng cách tiếp cận thứ hai, một vài dòng đầu tiên của tập lệnh Python (được gọi là myscript.py ở trên) có thể trông như thế này:</p>
+<p>Trong ví dụ này, tập lệnh Slurm sẽ chạy năm job. Mỗi job sẽ có giá trị SLURM_ARRAY_TASK_ID khác nhau (tức là 0, 1, 2, 3, 4). Giá trị của SLURM_ARRAY_TASK_ID có thể được sử dụng để phân biệt các job trong mảng. Xem ví dụ đầy đủ về Python. Người ta có thể chuyển SLURM_ARRAY_TASK_ID cho tệp thực thi dưới dạng tham số dòng lệnh hoặc tham chiếu nó dưới dạng biến môi trường. Sử dụng cách tiếp cận thứ hai, một vài dòng đầu tiên của tập lệnh Python (được gọi là myscript.py ở trên) có thể trông như thế này:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">import os
 idx = int(os.environ[&quot;SLURM_ARRAY_TASK_ID&quot;])
@@ -533,13 +533,13 @@ parameters = [2.5, 5.0, 7.5, 10.0, 12.5]
 myparam = parameters[idx]
 # execute the rest of the script using myparam</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="các-công-việc-sử-dụng-bộ-nhớ-lớn">
+<doc-anchor-target id="các-job-sử-dụng-bộ-nhớ-lớn">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#các-công-việc-sử-dụng-bộ-nhớ-lớn">#</doc-anchor-trigger>
-        <span>Các công việc sử dụng bộ nhớ lớn</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#các-job-sử-dụng-bộ-nhớ-lớn">#</doc-anchor-trigger>
+        <span>Các job sử dụng bộ nhớ lớn</span>
     </h2>
 </doc-anchor-target>
-<p>Một lợi thế của việc sử dụng cụm HPC trên máy tính xách tay hoặc máy trạm của bạn là lượng RAM lớn có sẵn trên mỗi nút. Ví dụ: trên một số cụm, bạn có thể chạy một công việc với bộ nhớ 100 GB. Điều này có thể rất hữu ích khi làm việc với một tập dữ liệu lớn. Để tìm hiểu xem mỗi nút có bao nhiêu bộ nhớ, hãy chạy lệnh snodes và xem cột MEMORY tính bằng megabyte.</p>
+<p>Một lợi thế của việc sử dụng cụm HPC trên máy tính xách tay hoặc máy trạm của bạn là lượng RAM lớn có sẵn trên mỗi nút. Ví dụ: trên một số cụm, bạn có thể chạy một job với bộ nhớ 100 GB. Điều này có thể rất hữu ích khi làm việc với một tập dữ liệu lớn. Để tìm hiểu xem mỗi nút có bao nhiêu bộ nhớ, hãy chạy lệnh snodes và xem cột MEMORY tính bằng megabyte.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">#!/bin/bash
 #SBATCH --job-name=slurm-test    # create a short name for your job
@@ -562,7 +562,7 @@ python myscript.py</code></pre>
         <span><strong>Báo cáo (hiện tại chưa hỗ trợ)</strong></span>
     </h2>
 </doc-anchor-target>
-<p>Nếu bạn đưa chỉ thị thư SBATCH bên dưới vào tập lệnh Slurm thì bạn sẽ nhận được email sau khi mỗi công việc kết thúc:</p>
+<p>Nếu bạn đưa chỉ thị thư SBATCH bên dưới vào tập lệnh Slurm thì bạn sẽ nhận được email sau khi mỗi job kết thúc:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">#SBATCH --mail-type=end
 #SBATCH --mail-user=&lt;yourEmail&gt;</code></pre>
@@ -610,8 +610,8 @@ python myscript.py</code></pre>
                                      Notes
 ================================================================================</code></pre>
 </doc-codeblock></div>
-<p>Báo cáo cung cấp thông tin về thời gian chạy, mức sử dụng CPU, mức sử dụng bộ nhớ, v.v. Bạn nên kiểm tra các giá trị này để xác định xem bạn có đang sử dụng tài nguyên đúng cách hay không. Xem trang Thống kê công việc để biết thêm thông tin.</p>
-<p>Thời gian xếp hàng của bạn một phần được xác định bởi lượng tài nguyên bạn yêu cầu. Giá trị chia sẻ công bằng của bạn, một phần quyết định mức độ ưu tiên của công việc tiếp theo của bạn, sẽ giảm tỷ lệ với lượng tài nguyên bạn đã sử dụng trong 30 ngày trước đó.</p>
+<p>Báo cáo cung cấp thông tin về thời gian chạy, mức sử dụng CPU, mức sử dụng bộ nhớ, v.v. Bạn nên kiểm tra các giá trị này để xác định xem bạn có đang sử dụng tài nguyên đúng cách hay không. Xem trang Thống kê job để biết thêm thông tin.</p>
+<p>Thời gian xếp hàng của bạn một phần được xác định bởi lượng tài nguyên bạn yêu cầu. Giá trị chia sẻ công bằng của bạn, một phần quyết định mức độ ưu tiên của job tiếp theo của bạn, sẽ giảm tỷ lệ với lượng tài nguyên bạn đã sử dụng trong 30 ngày trước đó.</p>
 <doc-anchor-target id="tài-liệu-đọc-thêm">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#tài-liệu-đọc-thêm">#</doc-anchor-trigger>
@@ -656,7 +656,7 @@ python myscript.py</code></pre>
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2023. All rights reserved.</p></div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. All rights reserved.</p></div>
                             </footer>
                         </div>
                     </div>
