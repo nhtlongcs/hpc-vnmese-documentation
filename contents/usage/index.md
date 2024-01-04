@@ -79,7 +79,7 @@ $ squeue -u <username> --start
 | Lệnh | Mô tả |
 | --- | --- |
 | sbatch | gửi job của bạn tới job scheduler |
-| salloc | yêu cầu một interactive job trên computing node (xem bên dưới) |
+| srun | yêu cầu một interactive job trên computing node (xem bên dưới) |
 
 ### **Sau khi Job được submit**
 
